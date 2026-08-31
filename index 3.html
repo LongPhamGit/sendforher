@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Đếm Ngược 💗</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(circle at top,#30203b,#090912 60%);
+
+    color:white;
+    min-height:100vh;
+}
+
+
+/* =========================
+   CREATOR
+========================= */
+
+.creator{
+    width:min(960px,94%);
+    margin:auto;
+    padding:35px 0 60px;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    opacity:.6;
+    margin-bottom:25px;
+}
+
+.card{
+    background:#151522;
+    border:1px solid #2c2c40;
+    border-radius:24px;
+
+    padding:24px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.4);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+input{
+    width:100%;
+
+    background:#0c0c15;
+    border:1px solid #36364b;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+input:focus{
+    border-color:#ff4f91;
+    box-shadow:0 0 0 3px #ff4f9122;
+}
+
+small{
+    display:block;
+    opacity:.5;
+    margin-top:6px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+
+    border-radius:14px;
+
+    padding:14px 22px;
+
+    font-size:16px;
+    font-weight:900;
+}
+
+.primary{
+    background:#ff4f91;
+    color:white;
+
+    box-shadow:
+        0 10px 30px #ff4f9144;
+}
+
+.secondary{
+    background:#2b2b3e;
+    color:white;
+}
+
+
+/* =========================
+   QR RESULT
+========================= */
+
+.result{
+    margin-top:20px;
+
+    display:none;
+
+    grid-template-columns:220px 1fr;
+
+    gap:25px;
+
+    align-items:center;
+}
+
+.qr{
+    background:white;
+
+    width:210px;
+    height:210px;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.share{
+    word-break:break-all;
+
+    background:#0b0b13;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    color:#ff9fc2;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   FULL SCREEN EXPERIENCE
+========================= */
+
+.stage{
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #39243f,
+            #090912 70%
+        );
+
+    z-index:100;
+}
+
+.stage.show{
+    display:block;
+}
+
+
+/* =========================
+   START SCREEN
+========================= */
+
+.startOverlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #40243f,
+            #090912 72%
+        );
+
+    backdrop-filter:blur(8px);
+}
+
+.startCard{
+    padding:30px;
+
+    animation:
+        startIn 1s ease;
+}
+
+.startHeart{
+    font-size:110px;
+
+    color:#ff4f91;
+
+    text-shadow:
+        0 0 25px #ff4f91,
+        0 0 70px #ff4f9188;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+.startTitle{
+    font-size:
+        clamp(24px,6vw,45px);
+
+    font-weight:900;
+
+    margin:20px 0;
+}
+
+.startButton{
+    display:inline-block;
+
+    background:#ff4f91;
+
+    padding:16px 30px;
+
+    border-radius:999px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 12px 40px #ff4f9166;
+}
+
+.startHint{
+    margin-top:12px;
+
+    font-size:13px;
+
+    opacity:.45;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.12);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes startIn{
+
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+.close{
+    position:absolute;
+
+    right:18px;
+    top:18px;
+
+    z-index:30;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    padding:0;
+
+    background:#ffffff18;
+
+    color:white;
+
+    font-size:25px;
+}
+
+
+/* =========================
+   FALLING BACKGROUND TEXT
+========================= */
+
+.rain{
+    position:absolute;
+
+    inset:-30%;
+
+    overflow:hidden;
+
+    opacity:.5;
+
+    pointer-events:none;
+}
+
+.drop{
+    position:absolute;
+
+    top:-10vh;
+
+    color:#ff9fc4;
+
+    white-space:nowrap;
+
+    font-weight:800;
+
+    text-shadow:
+        0 0 10px #ff4f9133;
+
+    animation:
+        fall linear infinite;
+}
+
+@keyframes fall{
+
+    to{
+        transform:
+            translateY(130vh)
+            rotate(4deg);
+    }
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.count{
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.number{
+    font-size:
+        min(35vw,190px);
+
+    font-weight:1000;
+
+    line-height:1;
+
+    text-shadow:
+        0 0 50px #ff4f91;
+
+    animation:
+        pop .8s ease;
+}
+
+.message{
+    font-size:
+        clamp(28px,6vw,60px);
+
+    font-weight:900;
+
+    max-width:900px;
+
+    line-height:1.15;
+
+    animation:
+        messageIn .8s ease;
+}
+
+@keyframes pop{
+
+    0%{
+        transform:scale(.15);
+        opacity:0;
+    }
+
+    70%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes messageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+
+/* =========================
+   FINAL HEART
+========================= */
+
+.finalArea{
+
+    position:relative;
+
+    width:
+        min(75vw,520px);
+
+    height:
+        min(75vw,520px);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    animation:
+        finalIn 1.2s
+        cubic-bezier(.17,.89,.32,1.28);
+
+}
+
+.heartImage{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(0 0 15px #ff4f91)
+        drop-shadow(0 0 45px #ff4f9188)
+        drop-shadow(0 0 100px #ff4f9144);
+
+    animation:
+        heartPulse 2s infinite;
+}
+
+.heartMessage{
+
+    position:relative;
+
+    z-index:5;
+
+    width:58%;
+
+    color:white;
+
+    font-size:
+        clamp(22px,5vw,43px);
+
+    font-weight:1000;
+
+    line-height:1.12;
+
+    text-align:center;
+
+    text-shadow:
+        0 3px 8px #7d1744,
+        0 0 20px #ffffffaa;
+}
+
+@keyframes finalIn{
+
+    from{
+        transform:scale(.05);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes heartPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+
+}
+
+
+/* =========================
+   FALLING SMALL HEARTS
+========================= */
+
+.loveRain{
+
+    position:absolute;
+
+    inset:-20%;
+
+    z-index:4;
+
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.love{
+
+    position:absolute;
+
+    top:-10vh;
+
+    color:#ff75aa;
+
+    text-shadow:
+        0 0 10px #ff4f91aa;
+
+    animation:
+        loveFall linear forwards;
+}
+
+@keyframes loveFall{
+
+    to{
+
+        transform:
+            translateY(130vh)
+            rotate(25deg);
+
+        opacity:.1;
+    }
+
+}
+
+
+/* =========================
+   SOUNDCLOUD
+========================= */
+
+#soundcloudPlayer{
+
+    position:absolute;
+
+    width:1px;
+    height:1px;
+
+    left:-20px;
+    top:-20px;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .result{
+        grid-template-columns:1fr;
+    }
+
+    .qr{
+        margin:auto;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     CREATOR
+========================================== -->
+
+<div class="creator">
+
+<div class="logo">
+💌 QR Đếm Ngược
+</div>
+
+<div class="subtitle">
+Một lời nhắn bình thường — biến thành một khoảnh khắc khó quên.
+</div>
+
+
+<div class="card">
+
+<div class="grid">
+
+
+<div class="full">
+
+<label>
+1. Câu nền
+</label>
+
+<input
+id="bg"
+maxlength="40"
+placeholder="Ví dụ: Anh có điều muốn nói"
+>
+
+<small>
+3–5 chữ · xuất hiện liên tục phía sau.
+</small>
+
+</div>
+
+
+<div>
+
+<label>
+2. Câu khi 3
+</label>
+
+<input
+id="c3"
+maxlength="40"
+placeholder="Ví dụ: Đừng vội nhé"
+>
+
+</div>
+
+
+<div>
+
+<label>
+3. Câu khi 2
+</label>
+
+<input
+id="c2"
+maxlength="40"
+placeholder="Ví dụ: Sắp biết rồi"
+>
+
+</div>
+
+
+<div>
+
+<label>
+4. Câu khi 1
+</label>
+
+<input
+id="c1"
+maxlength="40"
+placeholder="Ví dụ: Nhìn thật kỹ"
+>
+
+</div>
+
+
+<div class="full">
+
+<label>
+5. Câu cuối trong trái tim
+</label>
+
+<input
+id="final"
+maxlength="60"
+placeholder="Ví dụ: Anh muốn được bên em thật lâu"
+>
+
+<small>
+5–8 chữ · câu cuối cùng.
+</small>
+
+</div>
+
+
+<div class="full">
+
+<label>
+6. Nhạc SoundCloud
+</label>
+
+<input
+id="soundcloud"
+placeholder="https://soundcloud.com/artist/ten-bai-hat"
+>
+
+<small>
+Dán link bài hát SoundCloud.
+</small>
+
+</div>
+
+
+</div>
+
+
+<div class="buttons">
+
+<button
+class="primary"
+onclick="preview()"
+>
+💗 Xem thử
+</button>
+
+<button
+class="secondary"
+onclick="createQR()"
+>
+🔳 Tạo QR
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QR RESULT -->
+
+<div
+class="card result"
+id="result"
+>
+
+<div class="qr" id="qrcode"></div>
+
+<div>
+
+<h2>
+QR của bạn đã sẵn sàng 💗
+</h2>
+
+<p>
+Quét QR để mở màn trình diễn.
+</p>
+
+<div
+class="share"
+id="shareUrl"
+></div>
+
+<br>
+
+<button
+class="secondary"
+onclick="copyLink()"
+>
+Copy link
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     EXPERIENCE
+========================================== -->
+
+<div
+class="stage"
+id="stage"
+>
+
+
+<!-- SOUNDCLOUD -->
+
+<iframe
+id="soundcloudPlayer"
+allow="autoplay"
+></iframe>
+
+
+<!-- START -->
+
+<div
+class="startOverlay"
+id="startOverlay"
+onclick="startExperience()"
+>
+
+<div class="startCard">
+
+<div class="startHeart">
+♥
+</div>
+
+<div class="startTitle">
+Có một điều dành cho bạn...
+</div>
+
+<div class="startButton">
+Chạm để mở 💗
+</div>
+
+<div class="startHint">
+Bật âm thanh để cảm nhận trọn vẹn
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="close"
+onclick="closeStage()"
+>
+×
+</button>
+
+
+<!-- BACKGROUND TEXT -->
+
+<div
+class="rain"
+id="rain"
+></div>
+
+
+<!-- SMALL HEARTS -->
+
+<div
+class="loveRain"
+id="loveRain"
+></div>
+
+
+<!-- COUNTDOWN -->
+
+<div
+class="count"
+id="count"
+></div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================================
+   BASIC
+========================================== */
+
+const $ =
+id => document.getElementById(id);
+
+
+/* ==========================================
+   DATA
+========================================== */
+
+function getData(){
+
+return {
+
+bg:$("bg").value.trim(),
+
+c3:$("c3").value.trim(),
+
+c2:$("c2").value.trim(),
+
+c1:$("c1").value.trim(),
+
+final:$("final").value.trim(),
+
+soundcloud:$("soundcloud").value.trim()
+
+};
+
+}
+
+
+function wordCount(text){
+
+return text
+.trim()
+.split(/\s+/)
+.filter(Boolean)
+.length;
+
+}
+
+
+function validate(d){
+
+if(wordCount(d.bg)<3 ||
+   wordCount(d.bg)>5){
+
+return "Câu nền cần 3–5 chữ.";
+
+}
+
+
+if(wordCount(d.c3)<3 ||
+   wordCount(d.c3)>5){
+
+return "Câu số 3 cần 3–5 chữ.";
+
+}
+
+
+if(wordCount(d.c2)<3 ||
+   wordCount(d.c2)>5){
+
+return "Câu số 2 cần 3–5 chữ.";
+
+}
+
+
+if(wordCount(d.c1)<3 ||
+   wordCount(d.c1)>5){
+
+return "Câu số 1 cần 3–5 chữ.";
+
+}
+
+
+if(wordCount(d.final)<5 ||
+   wordCount(d.final)>8){
+
+return "Câu cuối cần 5–8 chữ.";
+
+}
+
+
+return "";
+
+}
+
+
+/* ==========================================
+   FALLING BACKGROUND
+========================================== */
+
+function createRain(text){
+
+const rain =
+$("rain");
+
+rain.innerHTML="";
+
+
+for(let i=0;i<120;i++){
+
+const el =
+document.createElement("div");
+
+el.className="drop";
+
+el.innerText=text;
+
+el.style.left =
+Math.random()*100+"%";
+
+el.style.fontSize =
+(11+Math.random()*23)+"px";
+
+el.style.animationDuration =
+(4+Math.random()*7)+"s";
+
+el.style.animationDelay =
+(-Math.random()*10)+"s";
+
+rain.appendChild(el);
+
+}
+
+}
+
+
+/* ==========================================
+   SMALL HEARTS
+========================================== */
+
+function createLoveRain(){
+
+const rain =
+$("loveRain");
+
+rain.innerHTML="";
+
+
+const hearts =
+[
+"♥",
+"♡",
+"❤",
+"💕",
+"💗",
+"💖"
+];
+
+
+for(let i=0;i<110;i++){
+
+const el =
+document.createElement("div");
+
+el.className="love";
+
+el.innerText =
+hearts[
+Math.floor(
+Math.random()*hearts.length
+)
+];
+
+el.style.left =
+Math.random()*100+"%";
+
+el.style.fontSize =
+(10+Math.random()*26)+"px";
+
+el.style.animationDuration =
+(3.5+Math.random()*5)+"s";
+
+el.style.animationDelay =
+(Math.random()*2)+"s";
+
+el.style.opacity =
+.4+Math.random()*.6;
+
+rain.appendChild(el);
+
+}
+
+}
+
+
+/* ==========================================
+   SOUNDCLOUD
+========================================== */
+
+let soundWidget=null;
+
+let soundReady=false;
+
+
+function loadSoundCloud(url){
+
+if(!url)
+return;
+
+
+const iframe =
+$("soundcloudPlayer");
+
+
+iframe.src =
+"https://w.soundcloud.com/player/"+
+"?url="+
+encodeURIComponent(url)+
+"&auto_play=false"+
+"&hide_related=true"+
+"&show_comments=false"+
+"&show_user=false"+
+"&show_reposts=false"+
+"&visual=false"+
+"&color=%23ff4f91";
+
+
+function setup(){
+
+if(!window.SC ||
+   !SC.Widget)
+return;
+
+
+soundWidget =
+SC.Widget(iframe);
+
+
+soundWidget.bind(
+SC.Widget.Events.READY,
+function(){
+
+soundReady=true;
+
+}
+);
+
+}
+
+
+if(window.SC &&
+   SC.Widget){
+
+setup();
+
+}
+
+else{
+
+const script =
+document.createElement("script");
+
+script.src =
+"https://w.soundcloud.com/player/api.js";
+
+script.onload =
+setup;
+
+document.head.appendChild(script);
+
+}
+
+}
+
+
+function playSound(){
+
+if(
+soundWidget &&
+soundReady
+){
+
+try{
+
+soundWidget.play();
+
+}
+catch(e){}
+
+}
+
+}
+
+
+/* ==========================================
+   PREVIEW
+========================================== */
+
+let currentData=null;
+
+let started=false;
+
+
+function preview(){
+
+const d =
+getData();
+
+const error =
+validate(d);
+
+
+if(error){
+
+alert(error);
+
+return;
+
+}
+
+
+currentData=d;
+
+started=false;
+
+
+$("stage")
+.classList
+.add("show");
+
+
+$("startOverlay")
+.style
+.display="flex";
+
+
+createRain(d.bg);
+
+
+if(d.soundcloud){
+
+loadSoundCloud(
+d.soundcloud
+);
+
+}
+
+}
+
+
+/* ==========================================
+   START EXPERIENCE
+========================================== */
+
+function startExperience(){
+
+if(started)
+return;
+
+
+started=true;
+
+
+$("startOverlay")
+.style
+.display="none";
+
+
+playSound();
+
+
+playSequence(
+currentData
+);
+
+}
+
+
+/* ==========================================
+   SEQUENCE
+========================================== */
+
+function wait(ms){
+
+return new Promise(
+resolve =>
+setTimeout(resolve,ms)
+);
+
+}
+
+
+async function playSequence(d){
+
+const count =
+$("count");
+
+
+/* 3 */
+
+count.innerHTML =
+`
+<div class="number">
+3
+</div>
+`;
+
+await wait(1300);
+
+
+/* MESSAGE 3 */
+
+count.innerHTML =
+`
+<div class="message">
+${escapeHTML(d.c3)}
+</div>
+`;
+
+await wait(1500);
+
+
+/* 2 */
+
+count.innerHTML =
+`
+<div class="number">
+2
+</div>
+`;
+
+await wait(1300);
+
+
+/* MESSAGE 2 */
+
+count.innerHTML =
+`
+<div class="message">
+${escapeHTML(d.c2)}
+</div>
+`;
+
+await wait(1500);
+
+
+/* 1 */
+
+count.innerHTML =
+`
+<div class="number">
+1
+</div>
+`;
+
+await wait(1300);
+
+
+/* MESSAGE 1 */
+
+count.innerHTML =
+`
+<div class="message">
+${escapeHTML(d.c1)}
+</div>
+`;
+
+await wait(1800);
+
+
+/* FINAL HEART */
+
+count.innerHTML =
+`
+<div class="finalArea">
+
+<img
+class="heartImage"
+src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Heart_in_classic_standard_style.svg"
+>
+
+<div class="heartMessage">
+${escapeHTML(d.final)}
+</div>
+
+</div>
+`;
+
+
+/* HEART RAIN */
+
+createLoveRain();
+
+}
+
+
+/* ==========================================
+   ESCAPE
+========================================== */
+
+function escapeHTML(text){
+
+return text.replace(
+/[&<>"']/g,
+function(m){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[m];
+
+}
+);
+
+}
+
+
+/* ==========================================
+   CLOSE
+========================================== */
+
+function closeStage(){
+
+$("stage")
+.classList
+.remove("show");
+
+
+$("count")
+.innerHTML="";
+
+
+$("rain")
+.innerHTML="";
+
+
+$("loveRain")
+.innerHTML="";
+
+
+$("startOverlay")
+.style
+.display="flex";
+
+
+started=false;
+
+
+if(soundWidget){
+
+try{
+
+soundWidget.pause();
+
+}
+catch(e){}
+
+}
+
+}
+
+
+/* ==========================================
+   QR
+========================================== */
+
+function encodeData(data){
+
+return btoa(
+unescape(
+encodeURIComponent(
+JSON.stringify(data)
+)
+)
+);
+
+}
+
+
+function decodeData(data){
+
+return JSON.parse(
+decodeURIComponent(
+escape(
+atob(data)
+)
+)
+);
+
+}
+
+
+function createQR(){
+
+const d =
+getData();
+
+const error =
+validate(d);
+
+
+if(error){
+
+alert(error);
+
+return;
+
+}
+
+
+const encoded =
+encodeData(d);
+
+
+const url =
+location.href.split("#")[0]
++
+"#play="
++
+encoded;
+
+
+$("qrcode")
+.innerHTML="";
+
+
+new QRCode(
+$("qrcode"),
+{
+
+text:url,
+
+width:180,
+
+height:180,
+
+colorDark:"#111111",
+
+colorLight:"#ffffff"
+
+}
+);
+
+
+$("shareUrl")
+.innerText=url;
+
+
+$("result")
+.style
+.display="grid";
+
+
+}
+
+
+/* ==========================================
+   COPY
+========================================== */
+
+function copyLink(){
+
+navigator.clipboard
+.writeText(
+$("shareUrl").innerText
+);
+
+alert(
+"Đã copy link 💗"
+);
+
+}
+
+
+/* ==========================================
+   OPEN QR
+========================================== */
+
+function loadQR(){
+
+if(
+!location.hash
+.startsWith("#play=")
+)
+return;
+
+
+try{
+
+const d =
+decodeData(
+location.hash
+.slice(6)
+);
+
+
+currentData=d;
+
+$("stage")
+.classList
+.add("show");
+
+
+$("startOverlay")
+.style
+.display="flex";
+
+
+createRain(
+d.bg
+);
+
+
+if(d.soundcloud){
+
+loadSoundCloud(
+d.soundcloud
+);
+
+}
+
+}
+
+catch(e){
+
+console.error(e);
+
+}
+
+}
+
+
+loadQR();
+
+
+</script>
+
+</body>
+</html>
