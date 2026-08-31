@@ -1,8 +1,18 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1.0,
+             maximum-scale=1.0,
+             user-scalable=no"
+>
 
 <title>QR Đếm Ngược 💗</title>
 
@@ -10,148 +20,296 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     box-sizing:border-box;
 }
 
+html,
 body{
+
     margin:0;
+    padding:0;
+
+    width:100%;
+    min-height:100%;
+
+    background:#090912;
+
+    color:white;
+
     font-family:
-        Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
         sans-serif;
-
-    background:
-        radial-gradient(circle at top,#30203b,#090912 60%);
-
-    color:white;
-    min-height:100vh;
 }
 
 
-/* =========================
+/* =====================================================
    CREATOR
-========================= */
+===================================================== */
 
 .creator{
-    width:min(960px,94%);
+
+    width:min(950px,94%);
+
     margin:auto;
-    padding:35px 0 60px;
+
+    padding:30px 0 60px;
 }
 
 .logo{
+
     font-size:32px;
+
     font-weight:900;
+
     margin-bottom:5px;
 }
 
 .subtitle{
+
     opacity:.6;
+
     margin-bottom:25px;
 }
 
 .card{
+
     background:#151522;
-    border:1px solid #2c2c40;
+
+    border:1px solid #2c2c42;
+
     border-radius:24px;
 
     padding:24px;
 
     box-shadow:
-        0 25px 80px rgba(0,0,0,.4);
+        0 25px 80px rgba(0,0,0,.45);
+
+    margin-bottom:20px;
 }
 
 .grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:18px;
 }
 
 .full{
-    grid-column:1/-1;
+
+    grid-column:
+        1/-1;
 }
 
 label{
+
     display:block;
+
     font-weight:800;
-    margin-bottom:7px;
+
+    margin-bottom:8px;
 }
 
-input{
+input[type="text"]{
+
     width:100%;
 
-    background:#0c0c15;
-    border:1px solid #36364b;
+    padding:14px;
 
     border-radius:14px;
 
-    padding:14px;
+    border:1px solid #3c3c51;
+
+    background:#0b0b13;
 
     color:white;
 
     font-size:16px;
 
     outline:none;
+}
+
+input[type="text"]:focus{
+
+    border-color:#ff4f91;
+
+    box-shadow:
+        0 0 0 3px #ff4f9122;
+}
+
+small{
+
+    display:block;
+
+    opacity:.5;
+
+    margin-top:7px;
+
+    line-height:1.4;
+}
+
+
+/* =====================================================
+   IMAGE UPLOAD
+===================================================== */
+
+.imageBox{
+
+    border:2px dashed #39394f;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    cursor:pointer;
 
     transition:.2s;
 }
 
-input:focus{
+.imageBox:hover{
+
     border-color:#ff4f91;
-    box-shadow:0 0 0 3px #ff4f9122;
+
+    background:#ff4f9108;
 }
 
-small{
-    display:block;
-    opacity:.5;
-    margin-top:6px;
+.imageBox input{
+
+    display:none;
 }
+
+.imageIcon{
+
+    font-size:40px;
+
+    margin-bottom:8px;
+}
+
+.imagePreview{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.previewItem{
+
+    position:relative;
+
+    width:85px;
+    height:85px;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#0b0b13;
+}
+
+.previewItem img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.removeImage{
+
+    position:absolute;
+
+    top:4px;
+    right:4px;
+
+    width:23px;
+    height:23px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    background:#000b;
+
+    color:white;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .buttons{
+
     display:flex;
+
     gap:12px;
-    margin-top:20px;
+
     flex-wrap:wrap;
+
+    margin-top:22px;
 }
 
 button{
+
     border:0;
+
     cursor:pointer;
 
-    border-radius:14px;
+    border-radius:999px;
 
-    padding:14px 22px;
+    padding:14px 24px;
 
     font-size:16px;
+
     font-weight:900;
 }
 
 .primary{
+
     background:#ff4f91;
+
     color:white;
 
     box-shadow:
-        0 10px 30px #ff4f9144;
+        0 12px 35px #ff4f9155;
 }
 
 .secondary{
-    background:#2b2b3e;
+
+    background:#2d2d41;
+
     color:white;
 }
 
 
-/* =========================
+/* =====================================================
    QR RESULT
-========================= */
+===================================================== */
 
 .result{
-    margin-top:20px;
 
     display:none;
 
-    grid-template-columns:220px 1fr;
+    grid-template-columns:
+        220px 1fr;
 
     gap:25px;
 
@@ -159,22 +317,23 @@ button{
 }
 
 .qr{
-    background:white;
 
     width:210px;
     height:210px;
+
+    background:white;
 
     padding:15px;
 
     border-radius:18px;
 
     display:flex;
-    align-items:center;
+
     justify-content:center;
+    align-items:center;
 }
 
 .share{
-    word-break:break-all;
 
     background:#0b0b13;
 
@@ -182,50 +341,66 @@ button{
 
     border-radius:12px;
 
-    color:#ff9fc2;
+    word-break:break-all;
 
-    font-size:13px;
+    color:#ff9fc4;
+
+    font-size:12px;
 }
 
 
-/* =========================
-   FULL SCREEN EXPERIENCE
-========================= */
+/* =====================================================
+   EXPERIENCE
+===================================================== */
 
 .stage{
+
     position:fixed;
 
     inset:0;
+
+    z-index:100;
 
     display:none;
 
     overflow:hidden;
 
     background:
+
         radial-gradient(
             circle at 50% 40%,
-            #39243f,
-            #090912 70%
+            #41253f,
+            #090912 72%
         );
-
-    z-index:100;
 }
 
 .stage.show{
+
     display:block;
 }
 
 
-/* =========================
+/* =====================================================
+   MUSIC
+===================================================== */
+
+#bgMusic{
+
+    display:none;
+}
+
+
+/* =====================================================
    START SCREEN
-========================= */
+===================================================== */
 
 .startOverlay{
+
     position:absolute;
 
     inset:0;
 
-    z-index:20;
+    z-index:50;
 
     display:flex;
 
@@ -234,51 +409,61 @@ button{
 
     text-align:center;
 
+    padding:25px;
+
+    cursor:pointer;
+
     background:
+
         radial-gradient(
-            circle at 50% 45%,
-            #40243f,
+            circle at center,
+            #492744,
             #090912 72%
         );
 
-    backdrop-filter:blur(8px);
-}
+    backdrop-filter:blur(12px);
 
-.startCard{
-    padding:30px;
-
-    animation:
-        startIn 1s ease;
+    -webkit-backdrop-filter:blur(12px);
 }
 
 .startHeart{
-    font-size:110px;
+
+    font-size:
+        clamp(90px,25vw,135px);
+
+    line-height:1;
 
     color:#ff4f91;
 
     text-shadow:
+
         0 0 25px #ff4f91,
-        0 0 70px #ff4f9188;
+
+        0 0 70px #ff4f9188,
+
+        0 0 120px #ff4f9144;
 
     animation:
         heartbeat 1.2s infinite;
 }
 
 .startTitle{
+
     font-size:
-        clamp(24px,6vw,45px);
+        clamp(24px,6vw,44px);
 
     font-weight:900;
 
-    margin:20px 0;
+    margin:25px 0 20px;
 }
 
 .startButton{
+
     display:inline-block;
 
-    background:#ff4f91;
-
     padding:16px 30px;
+
+    background:#ff4f91;
 
     border-radius:999px;
 
@@ -289,7 +474,8 @@ button{
 }
 
 .startHint{
-    margin-top:12px;
+
+    margin-top:14px;
 
     font-size:13px;
 
@@ -303,74 +489,34 @@ button{
     }
 
     15%{
-        transform:scale(1.12);
+        transform:scale(1.13);
     }
 
     30%{
         transform:scale(1);
     }
-
-}
-
-@keyframes startIn{
-
-    from{
-        opacity:0;
-        transform:scale(.8);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-
 }
 
 
-/* =========================
-   CLOSE
-========================= */
-
-.close{
-    position:absolute;
-
-    right:18px;
-    top:18px;
-
-    z-index:30;
-
-    width:45px;
-    height:45px;
-
-    border-radius:50%;
-
-    padding:0;
-
-    background:#ffffff18;
-
-    color:white;
-
-    font-size:25px;
-}
-
-
-/* =========================
-   FALLING BACKGROUND TEXT
-========================= */
+/* =====================================================
+   FALLING BACKGROUND
+===================================================== */
 
 .rain{
+
     position:absolute;
 
     inset:-30%;
 
     overflow:hidden;
 
-    opacity:.5;
-
     pointer-events:none;
+
+    opacity:.45;
 }
 
 .drop{
+
     position:absolute;
 
     top:-10vh;
@@ -382,7 +528,7 @@ button{
     font-weight:800;
 
     text-shadow:
-        0 0 10px #ff4f9133;
+        0 0 12px #ff4f9144;
 
     animation:
         fall linear infinite;
@@ -391,120 +537,178 @@ button{
 @keyframes fall{
 
     to{
-        transform:
-            translateY(130vh)
-            rotate(4deg);
-    }
 
+        transform:
+            translateY(135vh)
+            rotate(5deg);
+    }
 }
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 .count{
+
     position:absolute;
 
     inset:0;
 
-    z-index:5;
+    z-index:15;
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
 
-    padding:20px;
+    padding:25px;
+
+    pointer-events:none;
 }
 
 .number{
+
     font-size:
-        min(35vw,190px);
+        min(38vw,210px);
 
     font-weight:1000;
 
-    line-height:1;
-
     text-shadow:
-        0 0 50px #ff4f91;
+
+        0 0 30px #ff4f91,
+
+        0 0 80px #ff4f9166;
 
     animation:
-        pop .8s ease;
+        numberIn 1.2s ease;
 }
 
 .message{
+
+    max-width:900px;
+
     font-size:
         clamp(28px,6vw,60px);
 
     font-weight:900;
 
-    max-width:900px;
-
     line-height:1.15;
 
+    text-shadow:
+        0 3px 15px #0008;
+
     animation:
-        messageIn .8s ease;
+        messageIn 1s ease;
 }
 
-@keyframes pop{
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.photoScreen{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    pointer-events:none;
+}
+
+.photo{
+
+    position:absolute;
+
+    width:
+        min(72vw,390px);
+
+    height:
+        min(72vw,390px);
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    border:4px solid white;
+
+    box-shadow:
+
+        0 20px 60px #0008,
+
+        0 0 50px #ff4f9166;
+
+    opacity:0;
+
+    transform:
+        scale(.65)
+        rotate(-5deg);
+
+    animation:
+        photoIn 1.2s forwards;
+}
+
+@keyframes photoIn{
 
     0%{
-        transform:scale(.15);
+
         opacity:0;
+
+        transform:
+            scale(.65)
+            rotate(-8deg);
     }
 
-    70%{
-        transform:scale(1.15);
+    20%{
+
+        opacity:1;
     }
 
     100%{
-        transform:scale(1);
+
         opacity:1;
+
+        transform:
+            scale(1)
+            rotate(0);
     }
-
-}
-
-@keyframes messageIn{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-
 }
 
 
-/* =========================
+/* =====================================================
    FINAL HEART
-========================= */
+===================================================== */
 
 .finalArea{
 
     position:relative;
 
     width:
-        min(75vw,520px);
+        min(84vw,540px);
 
     height:
-        min(75vw,520px);
+        min(84vw,540px);
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     animation:
-        finalIn 1.2s
+        finalAppear 1.5s
         cubic-bezier(.17,.89,.32,1.28);
-
 }
 
 .heartImage{
@@ -517,9 +721,18 @@ button{
     object-fit:contain;
 
     filter:
-        drop-shadow(0 0 15px #ff4f91)
-        drop-shadow(0 0 45px #ff4f9188)
-        drop-shadow(0 0 100px #ff4f9144);
+
+        drop-shadow(
+            0 0 18px #ff4f91
+        )
+
+        drop-shadow(
+            0 0 55px #ff4f9188
+        )
+
+        drop-shadow(
+            0 0 110px #ff4f9144
+        );
 
     animation:
         heartPulse 2s infinite;
@@ -529,38 +742,43 @@ button{
 
     position:relative;
 
-    z-index:5;
+    z-index:10;
 
-    width:58%;
+    width:56%;
 
-    color:white;
+    text-align:center;
 
     font-size:
-        clamp(22px,5vw,43px);
+        clamp(21px,5vw,43px);
 
     font-weight:1000;
 
     line-height:1.12;
 
-    text-align:center;
+    color:white;
 
     text-shadow:
-        0 3px 8px #7d1744,
+
+        0 3px 8px #79183f,
+
         0 0 20px #ffffffaa;
 }
 
-@keyframes finalIn{
+@keyframes finalAppear{
 
     from{
-        transform:scale(.05);
+
         opacity:0;
+
+        transform:scale(.05);
     }
 
     to{
-        transform:scale(1);
-        opacity:1;
-    }
 
+        opacity:1;
+
+        transform:scale(1);
+    }
 }
 
 @keyframes heartPulse{
@@ -570,15 +788,14 @@ button{
     }
 
     50%{
-        transform:scale(1.04);
+        transform:scale(1.045);
     }
-
 }
 
 
-/* =========================
-   FALLING SMALL HEARTS
-========================= */
+/* =====================================================
+   FALLING HEARTS
+===================================================== */
 
 .loveRain{
 
@@ -586,7 +803,7 @@ button{
 
     inset:-20%;
 
-    z-index:4;
+    z-index:30;
 
     overflow:hidden;
 
@@ -599,13 +816,11 @@ button{
 
     top:-10vh;
 
-    color:#ff75aa;
-
-    text-shadow:
-        0 0 10px #ff4f91aa;
-
     animation:
         loveFall linear forwards;
+
+    text-shadow:
+        0 0 12px #ff4f91aa;
 }
 
 @keyframes loveFall{
@@ -613,328 +828,436 @@ button{
     to{
 
         transform:
-            translateY(130vh)
-            rotate(25deg);
+            translateY(135vh)
+            rotate(30deg);
 
-        opacity:.1;
+        opacity:.05;
+    }
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes numberIn{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.15);
     }
 
+    65%{
+
+        transform:scale(1.15);
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1);
+    }
+}
+
+@keyframes messageIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.94);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 
-/* =========================
-   SOUNDCLOUD
-========================= */
-
-#soundcloudPlayer{
-
-    position:absolute;
-
-    width:1px;
-    height:1px;
-
-    left:-20px;
-    top:-20px;
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:700px){
 
+    .creator{
+
+        padding-top:20px;
+    }
+
     .grid{
+
         grid-template-columns:1fr;
     }
 
+    .full{
+
+        grid-column:auto;
+    }
+
     .result{
+
         grid-template-columns:1fr;
     }
 
     .qr{
+
         margin:auto;
+    }
+
+    .card{
+
+        padding:18px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==========================================
+<!-- =====================================================
      CREATOR
-========================================== -->
-
-<div class="creator">
-
-<div class="logo">
-💌 QR Đếm Ngược
-</div>
-
-<div class="subtitle">
-Một lời nhắn bình thường — biến thành một khoảnh khắc khó quên.
-</div>
-
-
-<div class="card">
-
-<div class="grid">
-
-
-<div class="full">
-
-<label>
-1. Câu nền
-</label>
-
-<input
-id="bg"
-maxlength="40"
-placeholder="Ví dụ: Anh có điều muốn nói"
->
-
-<small>
-3–5 chữ · xuất hiện liên tục phía sau.
-</small>
-
-</div>
-
-
-<div>
-
-<label>
-2. Câu khi 3
-</label>
-
-<input
-id="c3"
-maxlength="40"
-placeholder="Ví dụ: Đừng vội nhé"
->
-
-</div>
-
-
-<div>
-
-<label>
-3. Câu khi 2
-</label>
-
-<input
-id="c2"
-maxlength="40"
-placeholder="Ví dụ: Sắp biết rồi"
->
-
-</div>
-
-
-<div>
-
-<label>
-4. Câu khi 1
-</label>
-
-<input
-id="c1"
-maxlength="40"
-placeholder="Ví dụ: Nhìn thật kỹ"
->
-
-</div>
-
-
-<div class="full">
-
-<label>
-5. Câu cuối trong trái tim
-</label>
-
-<input
-id="final"
-maxlength="60"
-placeholder="Ví dụ: Anh muốn được bên em thật lâu"
->
-
-<small>
-5–8 chữ · câu cuối cùng.
-</small>
-
-</div>
-
-
-<div class="full">
-
-<label>
-6. Nhạc SoundCloud
-</label>
-
-<input
-id="soundcloud"
-placeholder="https://soundcloud.com/artist/ten-bai-hat"
->
-
-<small>
-Dán link bài hát SoundCloud.
-</small>
-
-</div>
-
-
-</div>
-
-
-<div class="buttons">
-
-<button
-class="primary"
-onclick="preview()"
->
-💗 Xem thử
-</button>
-
-<button
-class="secondary"
-onclick="createQR()"
->
-🔳 Tạo QR
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QR RESULT -->
+===================================================== -->
 
 <div
-class="card result"
-id="result"
+    class="creator"
+    id="creator"
 >
 
-<div class="qr" id="qrcode"></div>
+    <div class="logo">
+        💌 QR Đếm Ngược
+    </div>
 
-<div>
+    <div class="subtitle">
+        Tạo một khoảnh khắc khiến người ấy không thể quên.
+    </div>
 
-<h2>
-QR của bạn đã sẵn sàng 💗
-</h2>
 
-<p>
-Quét QR để mở màn trình diễn.
-</p>
+    <div class="card">
 
-<div
-class="share"
-id="shareUrl"
-></div>
+        <div class="grid">
 
-<br>
 
-<button
-class="secondary"
-onclick="copyLink()"
->
-Copy link
-</button>
+            <!-- BACKGROUND -->
+
+            <div class="full">
+
+                <label>
+                    1. Câu nền
+                </label>
+
+                <input
+                    type="text"
+                    id="bg"
+                    maxlength="40"
+                    placeholder="Anh có điều muốn nói"
+                >
+
+                <small>
+                    3–5 chữ · rơi liên tục phía sau.
+                </small>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div>
+
+                <label>
+                    2. Câu khi 3
+                </label>
+
+                <input
+                    type="text"
+                    id="c3"
+                    maxlength="40"
+                    placeholder="Đừng vội nhé"
+                >
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div>
+
+                <label>
+                    3. Câu khi 2
+                </label>
+
+                <input
+                    type="text"
+                    id="c2"
+                    maxlength="40"
+                    placeholder="Sắp biết rồi"
+                >
+
+            </div>
+
+
+            <!-- 1 -->
+
+            <div>
+
+                <label>
+                    4. Câu khi 1
+                </label>
+
+                <input
+                    type="text"
+                    id="c1"
+                    maxlength="40"
+                    placeholder="Nhìn thật kỹ"
+                >
+
+            </div>
+
+
+            <!-- FINAL -->
+
+            <div class="full">
+
+                <label>
+                    5. Câu cuối trong trái tim
+                </label>
+
+                <input
+                    type="text"
+                    id="final"
+                    maxlength="60"
+                    placeholder="Anh muốn được bên em thật lâu"
+                >
+
+                <small>
+                    5–8 chữ.
+                </small>
+
+            </div>
+
+
+            <!-- =================================================
+                 PHOTOS
+            ================================================== -->
+
+            <div class="full">
+
+                <label>
+                    6. Hình ảnh của hai đứa 🥰
+                </label>
+
+
+                <label class="imageBox">
+
+                    <input
+                        type="file"
+                        id="photos"
+                        accept="image/*"
+                        multiple
+                        onchange="handleImages(event)"
+                    >
+
+
+                    <div class="imageIcon">
+                        🖼️
+                    </div>
+
+                    <strong>
+                        Chọn ảnh
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Nên chọn 3–5 ảnh.
+                        Ảnh sẽ được tự động nén để tạo QR.
+                    </small>
+
+                </label>
+
+
+                <div
+                    class="imagePreview"
+                    id="imagePreview"
+                ></div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="preview()"
+            >
+                💗 Xem thử
+            </button>
+
+
+            <button
+                class="secondary"
+                onclick="createQR()"
+            >
+                🔳 Tạo QR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         QR RESULT
+    ===================================================== -->
+
+    <div
+        class="card result"
+        id="result"
+    >
+
+        <div
+            class="qr"
+            id="qrcode"
+        ></div>
+
+
+        <div>
+
+            <h2>
+                QR đã sẵn sàng 💗
+            </h2>
+
+            <p>
+                Quét QR để xem trình diễn.
+            </p>
+
+            <div
+                class="share"
+                id="shareUrl"
+            ></div>
+
+            <br>
+
+            <button
+                class="secondary"
+                onclick="copyLink()"
+            >
+                Copy link
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
 
 
-</div>
-
-
-
-<!-- ==========================================
+<!-- =====================================================
      EXPERIENCE
-========================================== -->
+===================================================== -->
 
 <div
-class="stage"
-id="stage"
+    class="stage"
+    id="stage"
 >
 
 
-<!-- SOUNDCLOUD -->
+    <!-- MUSIC -->
 
-<iframe
-id="soundcloudPlayer"
-allow="autoplay"
-></iframe>
+    <audio
+        id="bgMusic"
+        loop
+        preload="auto"
+    >
 
+        <source
+            src="music.mp3"
+            type="audio/mpeg"
+        >
 
-<!-- START -->
-
-<div
-class="startOverlay"
-id="startOverlay"
-onclick="startExperience()"
->
-
-<div class="startCard">
-
-<div class="startHeart">
-♥
-</div>
-
-<div class="startTitle">
-Có một điều dành cho bạn...
-</div>
-
-<div class="startButton">
-Chạm để mở 💗
-</div>
-
-<div class="startHint">
-Bật âm thanh để cảm nhận trọn vẹn
-</div>
-
-</div>
-
-</div>
+    </audio>
 
 
-<button
-class="close"
-onclick="closeStage()"
->
-×
-</button>
+    <!-- START -->
+
+    <div
+        class="startOverlay"
+        id="startOverlay"
+        onclick="startExperience()"
+    >
+
+        <div>
+
+            <div class="startHeart">
+                ♥
+            </div>
+
+            <div class="startTitle">
+                Có một điều dành cho bạn...
+            </div>
+
+            <div class="startButton">
+                Chạm để mở 💗
+            </div>
+
+            <div class="startHint">
+                Chạm một lần để bắt đầu
+            </div>
+
+        </div>
+
+    </div>
 
 
-<!-- BACKGROUND TEXT -->
+    <!-- FALLING TEXT -->
 
-<div
-class="rain"
-id="rain"
-></div>
-
-
-<!-- SMALL HEARTS -->
-
-<div
-class="loveRain"
-id="loveRain"
-></div>
+    <div
+        class="rain"
+        id="rain"
+    ></div>
 
 
-<!-- COUNTDOWN -->
+    <!-- PHOTOS -->
 
-<div
-class="count"
-id="count"
-></div>
+    <div
+        class="photoScreen"
+        id="photoScreen"
+    ></div>
+
+
+    <!-- HEARTS -->
+
+    <div
+        class="loveRain"
+        id="loveRain"
+    ></div>
+
+
+    <!-- COUNTDOWN -->
+
+    <div
+        class="count"
+        id="count"
+    ></div>
 
 
 </div>
@@ -943,743 +1266,1156 @@ id="count"
 
 <script>
 
-
-/* ==========================================
-   BASIC
-========================================== */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 const $ =
-id => document.getElementById(id);
+    id =>
+    document.getElementById(id);
 
 
-/* ==========================================
-   DATA
-========================================== */
+let currentData = null;
 
-function getData(){
+let uploadedImages = [];
 
-return {
+let started = false;
 
-bg:$("bg").value.trim(),
 
-c3:$("c3").value.trim(),
-
-c2:$("c2").value.trim(),
-
-c1:$("c1").value.trim(),
-
-final:$("final").value.trim(),
-
-soundcloud:$("soundcloud").value.trim()
-
-};
-
-}
-
+/* =====================================================
+   WORD COUNT
+===================================================== */
 
 function wordCount(text){
 
-return text
-.trim()
-.split(/\s+/)
-.filter(Boolean)
-.length;
-
+    return text
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .length;
 }
 
 
-function validate(d){
-
-if(wordCount(d.bg)<3 ||
-   wordCount(d.bg)>5){
-
-return "Câu nền cần 3–5 chữ.";
-
-}
-
-
-if(wordCount(d.c3)<3 ||
-   wordCount(d.c3)>5){
-
-return "Câu số 3 cần 3–5 chữ.";
-
-}
-
-
-if(wordCount(d.c2)<3 ||
-   wordCount(d.c2)>5){
-
-return "Câu số 2 cần 3–5 chữ.";
-
-}
-
-
-if(wordCount(d.c1)<3 ||
-   wordCount(d.c1)>5){
-
-return "Câu số 1 cần 3–5 chữ.";
-
-}
-
-
-if(wordCount(d.final)<5 ||
-   wordCount(d.final)>8){
-
-return "Câu cuối cần 5–8 chữ.";
-
-}
-
-
-return "";
-
-}
-
-
-/* ==========================================
-   FALLING BACKGROUND
-========================================== */
-
-function createRain(text){
-
-const rain =
-$("rain");
-
-rain.innerHTML="";
-
-
-for(let i=0;i<120;i++){
-
-const el =
-document.createElement("div");
-
-el.className="drop";
-
-el.innerText=text;
-
-el.style.left =
-Math.random()*100+"%";
-
-el.style.fontSize =
-(11+Math.random()*23)+"px";
-
-el.style.animationDuration =
-(4+Math.random()*7)+"s";
-
-el.style.animationDelay =
-(-Math.random()*10)+"s";
-
-rain.appendChild(el);
-
-}
-
-}
-
-
-/* ==========================================
-   SMALL HEARTS
-========================================== */
-
-function createLoveRain(){
-
-const rain =
-$("loveRain");
-
-rain.innerHTML="";
-
-
-const hearts =
-[
-"♥",
-"♡",
-"❤",
-"💕",
-"💗",
-"💖"
-];
-
-
-for(let i=0;i<110;i++){
-
-const el =
-document.createElement("div");
-
-el.className="love";
-
-el.innerText =
-hearts[
-Math.floor(
-Math.random()*hearts.length
-)
-];
-
-el.style.left =
-Math.random()*100+"%";
-
-el.style.fontSize =
-(10+Math.random()*26)+"px";
-
-el.style.animationDuration =
-(3.5+Math.random()*5)+"s";
-
-el.style.animationDelay =
-(Math.random()*2)+"s";
-
-el.style.opacity =
-.4+Math.random()*.6;
-
-rain.appendChild(el);
-
-}
-
-}
-
-
-/* ==========================================
-   SOUNDCLOUD
-========================================== */
-
-let soundWidget=null;
-
-let soundReady=false;
-
-
-function loadSoundCloud(url){
-
-if(!url)
-return;
-
-
-const iframe =
-$("soundcloudPlayer");
-
-
-iframe.src =
-"https://w.soundcloud.com/player/"+
-"?url="+
-encodeURIComponent(url)+
-"&auto_play=false"+
-"&hide_related=true"+
-"&show_comments=false"+
-"&show_user=false"+
-"&show_reposts=false"+
-"&visual=false"+
-"&color=%23ff4f91";
-
-
-function setup(){
-
-if(!window.SC ||
-   !SC.Widget)
-return;
-
-
-soundWidget =
-SC.Widget(iframe);
-
-
-soundWidget.bind(
-SC.Widget.Events.READY,
-function(){
-
-soundReady=true;
-
-}
-);
-
-}
-
-
-if(window.SC &&
-   SC.Widget){
-
-setup();
-
-}
-
-else{
-
-const script =
-document.createElement("script");
-
-script.src =
-"https://w.soundcloud.com/player/api.js";
-
-script.onload =
-setup;
-
-document.head.appendChild(script);
-
-}
-
-}
-
-
-function playSound(){
-
-if(
-soundWidget &&
-soundReady
-){
-
-try{
-
-soundWidget.play();
-
-}
-catch(e){}
-
-}
-
-}
-
-
-/* ==========================================
-   PREVIEW
-========================================== */
-
-let currentData=null;
-
-let started=false;
-
-
-function preview(){
-
-const d =
-getData();
-
-const error =
-validate(d);
-
-
-if(error){
-
-alert(error);
-
-return;
-
-}
-
-
-currentData=d;
-
-started=false;
-
-
-$("stage")
-.classList
-.add("show");
-
-
-$("startOverlay")
-.style
-.display="flex";
-
-
-createRain(d.bg);
-
-
-if(d.soundcloud){
-
-loadSoundCloud(
-d.soundcloud
-);
-
-}
-
-}
-
-
-/* ==========================================
-   START EXPERIENCE
-========================================== */
-
-function startExperience(){
-
-if(started)
-return;
-
-
-started=true;
-
-
-$("startOverlay")
-.style
-.display="none";
-
-
-playSound();
-
-
-playSequence(
-currentData
-);
-
-}
-
-
-/* ==========================================
-   SEQUENCE
-========================================== */
-
-function wait(ms){
-
-return new Promise(
-resolve =>
-setTimeout(resolve,ms)
-);
-
-}
-
-
-async function playSequence(d){
-
-const count =
-$("count");
-
-
-/* 3 */
-
-count.innerHTML =
-`
-<div class="number">
-3
-</div>
-`;
-
-await wait(1300);
-
-
-/* MESSAGE 3 */
-
-count.innerHTML =
-`
-<div class="message">
-${escapeHTML(d.c3)}
-</div>
-`;
-
-await wait(1500);
-
-
-/* 2 */
-
-count.innerHTML =
-`
-<div class="number">
-2
-</div>
-`;
-
-await wait(1300);
-
-
-/* MESSAGE 2 */
-
-count.innerHTML =
-`
-<div class="message">
-${escapeHTML(d.c2)}
-</div>
-`;
-
-await wait(1500);
-
-
-/* 1 */
-
-count.innerHTML =
-`
-<div class="number">
-1
-</div>
-`;
-
-await wait(1300);
-
-
-/* MESSAGE 1 */
-
-count.innerHTML =
-`
-<div class="message">
-${escapeHTML(d.c1)}
-</div>
-`;
-
-await wait(1800);
-
-
-/* FINAL HEART */
-
-count.innerHTML =
-`
-<div class="finalArea">
-
-<img
-class="heartImage"
-src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Heart_in_classic_standard_style.svg"
->
-
-<div class="heartMessage">
-${escapeHTML(d.final)}
-</div>
-
-</div>
-`;
-
-
-/* HEART RAIN */
-
-createLoveRain();
-
-}
-
-
-/* ==========================================
-   ESCAPE
-========================================== */
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHTML(text){
 
-return text.replace(
-/[&<>"']/g,
-function(m){
+    return text.replace(
+        /[&<>"']/g,
 
-return {
+        char => ({
 
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
 
-}[m];
-
-}
-);
-
+        })[char]
+    );
 }
 
 
-/* ==========================================
-   CLOSE
-========================================== */
+/* =====================================================
+   GET DATA
+===================================================== */
 
-function closeStage(){
+function getData(){
 
-$("stage")
-.classList
-.remove("show");
+    return {
 
+        bg:
+            $("bg").value.trim(),
 
-$("count")
-.innerHTML="";
+        c3:
+            $("c3").value.trim(),
 
+        c2:
+            $("c2").value.trim(),
 
-$("rain")
-.innerHTML="";
+        c1:
+            $("c1").value.trim(),
 
+        final:
+            $("final").value.trim(),
 
-$("loveRain")
-.innerHTML="";
+        images:
+            uploadedImages
 
-
-$("startOverlay")
-.style
-.display="flex";
-
-
-started=false;
-
-
-if(soundWidget){
-
-try{
-
-soundWidget.pause();
-
-}
-catch(e){}
-
-}
-
+    };
 }
 
 
-/* ==========================================
-   QR
-========================================== */
+/* =====================================================
+   VALIDATE
+===================================================== */
+
+function validate(data){
+
+    if(
+        wordCount(data.bg)<3 ||
+        wordCount(data.bg)>5
+    )
+        return "Câu nền phải có 3–5 chữ.";
+
+
+    if(
+        wordCount(data.c3)<3 ||
+        wordCount(data.c3)>5
+    )
+        return "Câu khi 3 phải có 3–5 chữ.";
+
+
+    if(
+        wordCount(data.c2)<3 ||
+        wordCount(data.c2)>5
+    )
+        return "Câu khi 2 phải có 3–5 chữ.";
+
+
+    if(
+        wordCount(data.c1)<3 ||
+        wordCount(data.c1)>5
+    )
+        return "Câu khi 1 phải có 3–5 chữ.";
+
+
+    if(
+        wordCount(data.final)<5 ||
+        wordCount(data.final)>8
+    )
+        return "Câu cuối phải có 5–8 chữ.";
+
+
+    return "";
+}
+
+
+/* =====================================================
+   IMAGE RESIZE
+===================================================== */
+
+function resizeImage(file){
+
+    return new Promise(
+        resolve => {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                event => {
+
+                    const img =
+                        new Image();
+
+
+                    img.onload =
+                        () => {
+
+                            const maxSize =
+                                600;
+
+
+                            let width =
+                                img.width;
+
+                            let height =
+                                img.height;
+
+
+                            if(
+                                width >
+                                maxSize ||
+                                height >
+                                maxSize
+                            ){
+
+                                if(
+                                    width >
+                                    height
+                                ){
+
+                                    height =
+                                        height *
+                                        maxSize /
+                                        width;
+
+                                    width =
+                                        maxSize;
+
+                                }
+                                else{
+
+                                    width =
+                                        width *
+                                        maxSize /
+                                        height;
+
+                                    height =
+                                        maxSize;
+
+                                }
+
+                            }
+
+
+                            const canvas =
+                                document.createElement(
+                                    "canvas"
+                                );
+
+
+                            canvas.width =
+                                width;
+
+                            canvas.height =
+                                height;
+
+
+                            const ctx =
+                                canvas.getContext(
+                                    "2d"
+                                );
+
+
+                            ctx.drawImage(
+                                img,
+                                0,
+                                0,
+                                width,
+                                height
+                            );
+
+
+                            /*
+                               JPEG quality 0.65
+                               giúp giảm dữ liệu
+                            */
+
+                            resolve(
+                                canvas.toDataURL(
+                                    "image/jpeg",
+                                    .65
+                                )
+                            );
+
+                        };
+
+
+                    img.src =
+                        event.target.result;
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+}
+
+
+/* =====================================================
+   HANDLE IMAGES
+===================================================== */
+
+async function handleImages(event){
+
+    const files =
+        Array.from(
+            event.target.files
+        );
+
+
+    uploadedImages = [];
+
+
+    /*
+       tối đa 5 ảnh
+    */
+
+    const selected =
+        files.slice(0,5);
+
+
+    for(
+        const file of selected
+    ){
+
+        if(
+            !file.type
+            .startsWith("image/")
+        )
+            continue;
+
+
+        const image =
+            await resizeImage(
+                file
+            );
+
+
+        uploadedImages.push(
+            image
+        );
+
+    }
+
+
+    renderPreviews();
+
+}
+
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+
+function renderPreviews(){
+
+    const container =
+        $("imagePreview");
+
+
+    container.innerHTML =
+        "";
+
+
+    uploadedImages.forEach(
+        (src,index) => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "previewItem";
+
+
+            item.innerHTML =
+
+            `
+                <img src="${src}">
+
+                <button
+                    class="removeImage"
+                    onclick="removeImage(${index})"
+                >
+                    ×
+                </button>
+            `;
+
+
+            container.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   REMOVE IMAGE
+===================================================== */
+
+function removeImage(index){
+
+    uploadedImages.splice(
+        index,
+        1
+    );
+
+    renderPreviews();
+
+}
+
+
+/* =====================================================
+   FALLING TEXT
+===================================================== */
+
+function createRain(text){
+
+    const rain =
+        $("rain");
+
+
+    rain.innerHTML =
+        "";
+
+
+    /*
+       150 chữ rơi
+    */
+
+    for(
+        let i=0;
+        i<150;
+        i++
+    ){
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "drop";
+
+
+        element.innerText =
+            text;
+
+
+        element.style.left =
+            Math.random()*100+
+            "%";
+
+
+        element.style.fontSize =
+            11+
+            Math.random()*23+
+            "px";
+
+
+        element.style.animationDuration =
+            4+
+            Math.random()*7+
+            "s";
+
+
+        element.style.animationDelay =
+            -Math.random()*12+
+            "s";
+
+
+        element.style.opacity =
+            .2+
+            Math.random()*.55;
+
+
+        rain.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   HEART RAIN
+===================================================== */
+
+function createLoveRain(){
+
+    const rain =
+        $("loveRain");
+
+
+    rain.innerHTML =
+        "";
+
+
+    const symbols = [
+
+        "♥",
+        "♡",
+        "❤",
+        "💕",
+        "💗",
+        "💖"
+
+    ];
+
+
+    for(
+        let i=0;
+        i<160;
+        i++
+    ){
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "love";
+
+
+        element.innerText =
+            symbols[
+                Math.floor(
+                    Math.random()*
+                    symbols.length
+                )
+            ];
+
+
+        element.style.left =
+            Math.random()*100+
+            "%";
+
+
+        element.style.fontSize =
+            10+
+            Math.random()*27+
+            "px";
+
+
+        element.style.animationDuration =
+            3.5+
+            Math.random()*5+
+            "s";
+
+
+        element.style.animationDelay =
+            Math.random()*2+
+            "s";
+
+
+        element.style.opacity =
+            .4+
+            Math.random()*.6;
+
+
+        rain.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW PHOTO
+===================================================== */
+
+async function showPhoto(src){
+
+    const screen =
+        $("photoScreen");
+
+
+    screen.innerHTML =
+        "";
+
+
+    if(!src)
+        return;
+
+
+    const img =
+        document.createElement(
+            "img"
+        );
+
+
+    img.className =
+        "photo";
+
+
+    img.src =
+        src;
+
+
+    screen.appendChild(
+        img
+    );
+
+
+    /*
+       Ảnh tồn tại một khoảng thời gian
+    */
+
+    await wait(2400);
+
+
+    screen.innerHTML =
+        "";
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+async function playMusic(){
+
+    const music =
+        $("bgMusic");
+
+
+    music.currentTime =
+        0;
+
+
+    try{
+
+        await music.play();
+
+    }
+    catch(error){
+
+        console.log(
+            "Audio blocked:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   WAIT
+===================================================== */
+
+function wait(ms){
+
+    return new Promise(
+        resolve =>
+            setTimeout(
+                resolve,
+                ms
+            )
+    );
+
+}
+
+
+/* =====================================================
+   START EXPERIENCE
+===================================================== */
+
+async function startExperience(){
+
+    if(
+        started ||
+        !currentData
+    )
+        return;
+
+
+    started =
+        true;
+
+
+    /*
+       Ẩn màn hình chạm
+    */
+
+    $("startOverlay")
+        .style
+        .display =
+        "none";
+
+
+    /*
+       PHÁT NHẠC TRONG
+       CLICK / TOUCH EVENT
+    */
+
+    await playMusic();
+
+
+    /*
+       Chạy trình diễn
+    */
+
+    playSequence(
+        currentData
+    );
+
+}
+
+
+/* =====================================================
+   SEQUENCE
+===================================================== */
+
+async function playSequence(data){
+
+    const count =
+        $("count");
+
+
+    /* =================================================
+       PHASE 1
+       SỐ 3
+       3.0 giây
+    ================================================= */
+
+    count.innerHTML =
+
+    `
+        <div class="number">
+            3
+        </div>
+    `;
+
+
+    await wait(3000);
+
+
+    /* =================================================
+       PHOTO 1
+    ================================================= */
+
+    if(data.images[0])
+        showPhoto(
+            data.images[0]
+        );
+
+
+    count.innerHTML =
+
+    `
+        <div class="message">
+            ${escapeHTML(data.c3)}
+        </div>
+    `;
+
+
+    await wait(3500);
+
+
+    /* =================================================
+       SỐ 2
+    ================================================= */
+
+    count.innerHTML =
+
+    `
+        <div class="number">
+            2
+        </div>
+    `;
+
+
+    await wait(3000);
+
+
+    /* =================================================
+       PHOTO 2
+    ================================================= */
+
+    if(data.images[1])
+        showPhoto(
+            data.images[1]
+        );
+
+
+    count.innerHTML =
+
+    `
+        <div class="message">
+            ${escapeHTML(data.c2)}
+        </div>
+    `;
+
+
+    await wait(3500);
+
+
+    /* =================================================
+       SỐ 1
+    ================================================= */
+
+    count.innerHTML =
+
+    `
+        <div class="number">
+            1
+        </div>
+    `;
+
+
+    await wait(3000);
+
+
+    /* =================================================
+       PHOTO 3
+    ================================================= */
+
+    if(data.images[2])
+        showPhoto(
+            data.images[2]
+        );
+
+
+    count.innerHTML =
+
+    `
+        <div class="message">
+            ${escapeHTML(data.c1)}
+        </div>
+    `;
+
+
+    await wait(4000);
+
+
+    /* =================================================
+       PHOTO 4
+    ================================================= */
+
+    if(data.images[3])
+        showPhoto(
+            data.images[3]
+        );
+
+
+    await wait(1800);
+
+
+    /* =================================================
+       FINAL HEART
+    ================================================= */
+
+    count.innerHTML =
+
+    `
+        <div class="finalArea">
+
+            <img
+                class="heartImage"
+
+                src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Heart_in_classic_standard_style.svg"
+
+                alt="Heart"
+            >
+
+
+            <div class="heartMessage">
+
+                ${escapeHTML(data.final)}
+
+            </div>
+
+        </div>
+    `;
+
+
+    /*
+       TIMING:
+       tim + heart
+    */
+
+    createLoveRain();
+
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+function preview(){
+
+    const data =
+        getData();
+
+
+    const error =
+        validate(data);
+
+
+    if(error){
+
+        alert(error);
+
+        return;
+
+    }
+
+
+    currentData =
+        data;
+
+
+    started =
+        false;
+
+
+    $("creator")
+        .style
+        .display =
+        "none";
+
+
+    $("stage")
+        .classList
+        .add("show");
+
+
+    $("startOverlay")
+        .style
+        .display =
+        "flex";
+
+
+    createRain(
+        data.bg
+    );
+
+}
+
+
+/* =====================================================
+   ENCODE
+===================================================== */
 
 function encodeData(data){
 
-return btoa(
-unescape(
-encodeURIComponent(
-JSON.stringify(data)
-)
-)
-);
+    return btoa(
+        unescape(
+            encodeURIComponent(
+                JSON.stringify(data)
+            )
+        )
+    );
 
 }
 
 
-function decodeData(data){
+/* =====================================================
+   DECODE
+===================================================== */
 
-return JSON.parse(
-decodeURIComponent(
-escape(
-atob(data)
-)
-)
-);
+function decodeData(encoded){
+
+    return JSON.parse(
+        decodeURIComponent(
+            escape(
+                atob(encoded)
+            )
+        )
+    );
 
 }
 
+
+/* =====================================================
+   CREATE QR
+===================================================== */
 
 function createQR(){
 
-const d =
-getData();
-
-const error =
-validate(d);
+    const data =
+        getData();
 
 
-if(error){
+    const error =
+        validate(data);
 
-alert(error);
 
-return;
+    if(error){
+
+        alert(error);
+
+        return;
+
+    }
+
+
+    const encoded =
+        encodeData(data);
+
+
+    const url =
+
+        location.origin +
+        location.pathname +
+        "#play=" +
+        encoded;
+
+
+    /*
+       Kiểm tra độ dài.
+       QR quá lớn sẽ khó quét.
+    */
+
+    if(
+        url.length >
+        7000
+    ){
+
+        alert(
+            "Dữ liệu QR đang quá lớn. Hãy giảm số lượng ảnh hoặc chọn ảnh nhẹ hơn."
+        );
+
+        return;
+
+    }
+
+
+    $("qrcode")
+        .innerHTML =
+        "";
+
+
+    new QRCode(
+
+        $("qrcode"),
+
+        {
+
+            text:url,
+
+            width:180,
+
+            height:180,
+
+            colorDark:"#111111",
+
+            colorLight:"#ffffff",
+
+            correctLevel:
+                QRCode.CorrectLevel.L
+
+        }
+
+    );
+
+
+    $("shareUrl")
+        .innerText =
+        url;
+
+
+    $("result")
+        .style
+        .display =
+        "grid";
 
 }
 
 
-const encoded =
-encodeData(d);
-
-
-const url =
-location.href.split("#")[0]
-+
-"#play="
-+
-encoded;
-
-
-$("qrcode")
-.innerHTML="";
-
-
-new QRCode(
-$("qrcode"),
-{
-
-text:url,
-
-width:180,
-
-height:180,
-
-colorDark:"#111111",
-
-colorLight:"#ffffff"
-
-}
-);
-
-
-$("shareUrl")
-.innerText=url;
-
-
-$("result")
-.style
-.display="grid";
-
-
-}
-
-
-/* ==========================================
+/* =====================================================
    COPY
-========================================== */
+===================================================== */
 
 function copyLink(){
 
-navigator.clipboard
-.writeText(
-$("shareUrl").innerText
-);
+    navigator.clipboard
+        .writeText(
+            $("shareUrl")
+            .innerText
+        )
+        .then(
 
-alert(
-"Đã copy link 💗"
-);
+            () =>
+                alert(
+                    "Đã copy link 💗"
+                )
 
-}
-
-
-/* ==========================================
-   OPEN QR
-========================================== */
-
-function loadQR(){
-
-if(
-!location.hash
-.startsWith("#play=")
-)
-return;
-
-
-try{
-
-const d =
-decodeData(
-location.hash
-.slice(6)
-);
-
-
-currentData=d;
-
-$("stage")
-.classList
-.add("show");
-
-
-$("startOverlay")
-.style
-.display="flex";
-
-
-createRain(
-d.bg
-);
-
-
-if(d.soundcloud){
-
-loadSoundCloud(
-d.soundcloud
-);
-
-}
-
-}
-
-catch(e){
-
-console.error(e);
-
-}
+        );
 
 }
 
 
-loadQR();
+/* =====================================================
+   OPEN FROM QR
+===================================================== */
 
+function openFromQR(){
+
+    if(
+        !location.hash
+        .startsWith("#play=")
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const encoded =
+            location.hash
+            .substring(6);
+
+
+        const data =
+            decodeData(
+                encoded
+            );
+
+
+        currentData =
+            data;
+
+
+        /*
+           KHÔNG HIỆN CREATOR
+        */
+
+        $("creator")
+            .style
+            .display =
+            "none";
+
+
+        /*
+           HIỆN EXPERIENCE
+        */
+
+        $("stage")
+            .classList
+            .add("show");
+
+
+        /*
+           KHÔNG CÓ NÚT X
+           KHÔNG CÓ CÁCH QUAY LẠI
+        */
+
+        $("startOverlay")
+            .style
+            .display =
+            "flex";
+
+
+        createRain(
+            data.bg
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+openFromQR();
 
 </script>
 
 </body>
+
 </html>
+```
