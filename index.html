@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -165,6 +164,8 @@ small{
 
 .imageBox{
 
+    display:block;
+
     border:2px dashed #39394f;
 
     border-radius:18px;
@@ -218,8 +219,6 @@ small{
     border-radius:12px;
 
     overflow:hidden;
-
-    background:#0b0b13;
 }
 
 .previewItem img{
@@ -253,7 +252,7 @@ small{
 
 
 /* =====================================================
-   BUTTONS
+   BUTTON
 ===================================================== */
 
 .buttons{
@@ -301,7 +300,7 @@ button{
 
 
 /* =====================================================
-   QR RESULT
+   QR
 ===================================================== */
 
 .result{
@@ -329,8 +328,8 @@ button{
 
     display:flex;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
 .share{
@@ -343,14 +342,14 @@ button{
 
     word-break:break-all;
 
-    color:#ff9fc4;
-
     font-size:12px;
+
+    color:#ff9fc4;
 }
 
 
 /* =====================================================
-   EXPERIENCE
+   STAGE
 ===================================================== */
 
 .stage{
@@ -370,7 +369,7 @@ button{
         radial-gradient(
             circle at 50% 40%,
             #41253f,
-            #090912 72%
+            #090912 75%
         );
 }
 
@@ -391,7 +390,7 @@ button{
 
 
 /* =====================================================
-   START SCREEN
+   START
 ===================================================== */
 
 .startOverlay{
@@ -400,7 +399,7 @@ button{
 
     inset:0;
 
-    z-index:50;
+    z-index:100;
 
     display:flex;
 
@@ -409,8 +408,6 @@ button{
 
     text-align:center;
 
-    padding:25px;
-
     cursor:pointer;
 
     background:
@@ -418,7 +415,7 @@ button{
         radial-gradient(
             circle at center,
             #492744,
-            #090912 72%
+            #090912 75%
         );
 
     backdrop-filter:blur(12px);
@@ -429,19 +426,17 @@ button{
 .startHeart{
 
     font-size:
-        clamp(90px,25vw,135px);
-
-    line-height:1;
+        clamp(90px,25vw,140px);
 
     color:#ff4f91;
+
+    line-height:1;
 
     text-shadow:
 
         0 0 25px #ff4f91,
 
-        0 0 70px #ff4f9188,
-
-        0 0 120px #ff4f9144;
+        0 0 70px #ff4f9188;
 
     animation:
         heartbeat 1.2s infinite;
@@ -450,7 +445,7 @@ button{
 .startTitle{
 
     font-size:
-        clamp(24px,6vw,44px);
+        clamp(23px,6vw,42px);
 
     font-weight:900;
 
@@ -463,9 +458,9 @@ button{
 
     padding:16px 30px;
 
-    background:#ff4f91;
-
     border-radius:999px;
+
+    background:#ff4f91;
 
     font-weight:900;
 
@@ -495,11 +490,12 @@ button{
     30%{
         transform:scale(1);
     }
+
 }
 
 
 /* =====================================================
-   FALLING BACKGROUND
+   BACKGROUND TEXT
 ===================================================== */
 
 .rain{
@@ -512,7 +508,7 @@ button{
 
     pointer-events:none;
 
-    opacity:.45;
+    opacity:.42;
 }
 
 .drop{
@@ -527,11 +523,11 @@ button{
 
     font-weight:800;
 
-    text-shadow:
-        0 0 12px #ff4f9144;
-
     animation:
         fall linear infinite;
+
+    text-shadow:
+        0 0 12px #ff4f9144;
 }
 
 @keyframes fall{
@@ -546,36 +542,46 @@ button{
 
 
 /* =====================================================
-   COUNTDOWN
+   CENTER CONTENT
 ===================================================== */
 
-.count{
+.presentation{
 
     position:absolute;
 
     inset:0;
 
-    z-index:15;
+    z-index:10;
 
     display:flex;
+
+    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
 
-    text-align:center;
+    padding:
+        30px 25%;
 
-    padding:25px;
+    text-align:center;
 
     pointer-events:none;
 }
 
-.number{
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.count{
 
     font-size:
-        min(38vw,210px);
+        min(34vw,200px);
 
     font-weight:1000;
+
+    line-height:1;
 
     text-shadow:
 
@@ -589,256 +595,21 @@ button{
 
 .message{
 
-    max-width:900px;
+    max-width:650px;
 
     font-size:
-        clamp(28px,6vw,60px);
+        clamp(26px,5.8vw,58px);
 
     font-weight:900;
 
     line-height:1.15;
 
     text-shadow:
-        0 3px 15px #0008;
+        0 4px 18px #0009;
 
     animation:
         messageIn 1s ease;
 }
-
-
-/* =====================================================
-   PHOTO
-===================================================== */
-
-.photoScreen{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:20;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    pointer-events:none;
-}
-
-.photo{
-
-    position:absolute;
-
-    width:
-        min(72vw,390px);
-
-    height:
-        min(72vw,390px);
-
-    object-fit:cover;
-
-    border-radius:25px;
-
-    border:4px solid white;
-
-    box-shadow:
-
-        0 20px 60px #0008,
-
-        0 0 50px #ff4f9166;
-
-    opacity:0;
-
-    transform:
-        scale(.65)
-        rotate(-5deg);
-
-    animation:
-        photoIn 1.2s forwards;
-}
-
-@keyframes photoIn{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            scale(.65)
-            rotate(-8deg);
-    }
-
-    20%{
-
-        opacity:1;
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:
-            scale(1)
-            rotate(0);
-    }
-}
-
-
-/* =====================================================
-   FINAL HEART
-===================================================== */
-
-.finalArea{
-
-    position:relative;
-
-    width:
-        min(84vw,540px);
-
-    height:
-        min(84vw,540px);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    animation:
-        finalAppear 1.5s
-        cubic-bezier(.17,.89,.32,1.28);
-}
-
-.heartImage{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    filter:
-
-        drop-shadow(
-            0 0 18px #ff4f91
-        )
-
-        drop-shadow(
-            0 0 55px #ff4f9188
-        )
-
-        drop-shadow(
-            0 0 110px #ff4f9144
-        );
-
-    animation:
-        heartPulse 2s infinite;
-}
-
-.heartMessage{
-
-    position:relative;
-
-    z-index:10;
-
-    width:56%;
-
-    text-align:center;
-
-    font-size:
-        clamp(21px,5vw,43px);
-
-    font-weight:1000;
-
-    line-height:1.12;
-
-    color:white;
-
-    text-shadow:
-
-        0 3px 8px #79183f,
-
-        0 0 20px #ffffffaa;
-}
-
-@keyframes finalAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.05);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-    }
-}
-
-@keyframes heartPulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.045);
-    }
-}
-
-
-/* =====================================================
-   FALLING HEARTS
-===================================================== */
-
-.loveRain{
-
-    position:absolute;
-
-    inset:-20%;
-
-    z-index:30;
-
-    overflow:hidden;
-
-    pointer-events:none;
-}
-
-.love{
-
-    position:absolute;
-
-    top:-10vh;
-
-    animation:
-        loveFall linear forwards;
-
-    text-shadow:
-        0 0 12px #ff4f91aa;
-}
-
-@keyframes loveFall{
-
-    to{
-
-        transform:
-            translateY(135vh)
-            rotate(30deg);
-
-        opacity:.05;
-    }
-}
-
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
 
 @keyframes numberIn{
 
@@ -885,6 +656,281 @@ button{
 
 
 /* =====================================================
+   SIDE PHOTOS
+===================================================== */
+
+.sidePhotos{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    pointer-events:none;
+}
+
+.sidePhoto{
+
+    position:absolute;
+
+    width:
+        min(23vw,260px);
+
+    height:
+        min(30vw,340px);
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    border:3px solid white;
+
+    box-shadow:
+
+        0 15px 45px #0009,
+
+        0 0 35px #ff4f9166;
+
+    opacity:0;
+
+    animation:
+        sidePhotoIn 1.2s forwards;
+}
+
+
+/* LEFT */
+
+.sidePhoto.left{
+
+    left:
+        max(2vw,18px);
+
+    transform:
+        rotate(-7deg)
+        translateX(-20px);
+}
+
+
+/* RIGHT */
+
+.sidePhoto.right{
+
+    right:
+        max(2vw,18px);
+
+    transform:
+        rotate(7deg)
+        translateX(20px);
+}
+
+@keyframes sidePhotoIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.75)
+            translateY(25px)
+            rotate(0);
+    }
+
+    to{
+
+        opacity:1;
+    }
+}
+
+
+/* =====================================================
+   FINAL AREA
+===================================================== */
+
+.finalArea{
+
+    position:relative;
+
+    width:
+        min(55vw,470px);
+
+    height:
+        min(55vw,470px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:
+        finalAppear 1.5s
+        cubic-bezier(.17,.89,.32,1.28);
+}
+
+.heartImage{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:
+
+        drop-shadow(
+            0 0 20px #ff4f91
+        )
+
+        drop-shadow(
+            0 0 60px #ff4f9188
+        )
+
+        drop-shadow(
+            0 0 110px #ff4f9144
+        );
+
+    animation:
+        heartPulse 2s infinite;
+}
+
+.heartMessage{
+
+    position:relative;
+
+    z-index:5;
+
+    width:55%;
+
+    text-align:center;
+
+    font-size:
+        clamp(20px,4.5vw,42px);
+
+    font-weight:1000;
+
+    line-height:1.12;
+
+    text-shadow:
+
+        0 3px 8px #79183f,
+
+        0 0 20px #ffffffaa;
+}
+
+@keyframes finalAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.05);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+    }
+}
+
+@keyframes heartPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.045);
+    }
+}
+
+
+/* =====================================================
+   FINAL CONTENT
+   Tất cả ảnh giữ lại
+===================================================== */
+
+.finalPhotos{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
+
+    pointer-events:none;
+}
+
+.finalPhoto{
+
+    position:absolute;
+
+    width:
+        min(18vw,180px);
+
+    height:
+        min(23vw,220px);
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:3px solid white;
+
+    box-shadow:
+        0 12px 35px #0009;
+
+    opacity:.9;
+}
+
+
+/* =====================================================
+   HEART RAIN
+===================================================== */
+
+.loveRain{
+
+    position:absolute;
+
+    inset:-20%;
+
+    z-index:40;
+
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.love{
+
+    position:absolute;
+
+    top:-10vh;
+
+    animation:
+        loveFall linear forwards;
+
+    text-shadow:
+        0 0 12px #ff4f91aa;
+}
+
+@keyframes loveFall{
+
+    to{
+
+        transform:
+            translateY(135vh)
+            rotate(30deg);
+
+        opacity:.05;
+    }
+}
+
+
+/* =====================================================
    MOBILE
 ===================================================== */
 
@@ -895,29 +941,83 @@ button{
         padding-top:20px;
     }
 
+
     .grid{
 
         grid-template-columns:1fr;
     }
+
 
     .full{
 
         grid-column:auto;
     }
 
+
     .result{
 
         grid-template-columns:1fr;
     }
+
 
     .qr{
 
         margin:auto;
     }
 
-    .card{
 
-        padding:18px;
+    .presentation{
+
+        padding:
+            30px 23%;
+    }
+
+
+    .message{
+
+        font-size:
+            clamp(23px,7vw,38px);
+    }
+
+
+    .sidePhoto{
+
+        width:24vw;
+
+        height:31vw;
+
+        border-radius:14px;
+
+        border-width:2px;
+    }
+
+
+    .finalArea{
+
+        width:62vw;
+
+        height:62vw;
+    }
+
+
+    .heartMessage{
+
+        width:53%;
+
+        font-size:
+            clamp(17px,4.8vw,30px);
+    }
+
+
+    .finalPhoto{
+
+        width:18vw;
+
+        height:24vw;
+
+        border-radius:12px;
+
+        border-width:2px;
     }
 
 }
@@ -944,7 +1044,7 @@ button{
     </div>
 
     <div class="subtitle">
-        Tạo một khoảnh khắc khiến người ấy không thể quên.
+        Tạo một khoảnh khắc đặc biệt dành cho người ấy.
     </div>
 
 
@@ -953,7 +1053,9 @@ button{
         <div class="grid">
 
 
-            <!-- BACKGROUND -->
+            <!-- =================================================
+                 BACKGROUND
+            ================================================== -->
 
             <div class="full">
 
@@ -964,18 +1066,19 @@ button{
                 <input
                     type="text"
                     id="bg"
-                    maxlength="40"
-                    placeholder="Anh có điều muốn nói"
+                    value="Anh có điều muốn nói"
                 >
 
                 <small>
-                    3–5 chữ · rơi liên tục phía sau.
+                    3–5 chữ.
                 </small>
 
             </div>
 
 
-            <!-- 3 -->
+            <!-- =================================================
+                 3
+            ================================================== -->
 
             <div>
 
@@ -986,14 +1089,15 @@ button{
                 <input
                     type="text"
                     id="c3"
-                    maxlength="40"
-                    placeholder="Đừng vội nhé"
+                    value="Có một điều rất đặc biệt"
                 >
 
             </div>
 
 
-            <!-- 2 -->
+            <!-- =================================================
+                 2
+            ================================================== -->
 
             <div>
 
@@ -1004,14 +1108,15 @@ button{
                 <input
                     type="text"
                     id="c2"
-                    maxlength="40"
-                    placeholder="Sắp biết rồi"
+                    value="Em sắp biết rồi đó"
                 >
 
             </div>
 
 
-            <!-- 1 -->
+            <!-- =================================================
+                 1
+            ================================================== -->
 
             <div>
 
@@ -1022,14 +1127,15 @@ button{
                 <input
                     type="text"
                     id="c1"
-                    maxlength="40"
-                    placeholder="Nhìn thật kỹ"
+                    value="Chỉ còn một chút thôi"
                 >
 
             </div>
 
 
-            <!-- FINAL -->
+            <!-- =================================================
+                 FINAL
+            ================================================== -->
 
             <div class="full">
 
@@ -1040,8 +1146,7 @@ button{
                 <input
                     type="text"
                     id="final"
-                    maxlength="60"
-                    placeholder="Anh muốn được bên em thật lâu"
+                    value="Anh muốn được bên em thật lâu"
                 >
 
                 <small>
@@ -1052,7 +1157,7 @@ button{
 
 
             <!-- =================================================
-                 PHOTOS
+                 IMAGES
             ================================================== -->
 
             <div class="full">
@@ -1081,11 +1186,9 @@ button{
                         Chọn ảnh
                     </strong>
 
-                    <br>
-
                     <small>
                         Nên chọn 3–5 ảnh.
-                        Ảnh sẽ được tự động nén để tạo QR.
+                        Ảnh sẽ tự động resize và nén.
                     </small>
 
                 </label>
@@ -1125,7 +1228,7 @@ button{
 
 
     <!-- =====================================================
-         QR RESULT
+         QR
     ===================================================== -->
 
     <div
@@ -1146,7 +1249,7 @@ button{
             </h2>
 
             <p>
-                Quét QR để xem trình diễn.
+                Quét QR để bắt đầu.
             </p>
 
             <div
@@ -1228,7 +1331,7 @@ button{
     </div>
 
 
-    <!-- FALLING TEXT -->
+    <!-- BACKGROUND -->
 
     <div
         class="rain"
@@ -1236,11 +1339,33 @@ button{
     ></div>
 
 
-    <!-- PHOTOS -->
+    <!-- SIDE PHOTOS -->
 
     <div
-        class="photoScreen"
-        id="photoScreen"
+        class="sidePhotos"
+        id="sidePhotos"
+    ></div>
+
+
+    <!-- CENTER -->
+
+    <div
+        class="presentation"
+        id="presentation"
+    >
+
+        <div
+            id="count"
+        ></div>
+
+    </div>
+
+
+    <!-- FINAL PHOTOS -->
+
+    <div
+        class="finalPhotos"
+        id="finalPhotos"
     ></div>
 
 
@@ -1249,14 +1374,6 @@ button{
     <div
         class="loveRain"
         id="loveRain"
-    ></div>
-
-
-    <!-- COUNTDOWN -->
-
-    <div
-        class="count"
-        id="count"
     ></div>
 
 
@@ -1275,11 +1392,16 @@ const $ =
     document.getElementById(id);
 
 
-let currentData = null;
+let currentData =
+    null;
 
-let uploadedImages = [];
 
-let started = false;
+let uploadedImages =
+    [];
+
+
+let started =
+    false;
 
 
 /* =====================================================
@@ -1293,11 +1415,12 @@ function wordCount(text){
         .split(/\s+/)
         .filter(Boolean)
         .length;
+
 }
 
 
 /* =====================================================
-   ESCAPE HTML
+   ESCAPE
 ===================================================== */
 
 function escapeHTML(text){
@@ -1315,6 +1438,7 @@ function escapeHTML(text){
 
         })[char]
     );
+
 }
 
 
@@ -1345,6 +1469,7 @@ function getData(){
             uploadedImages
 
     };
+
 }
 
 
@@ -1390,6 +1515,7 @@ function validate(data){
 
 
     return "";
+
 }
 
 
@@ -1417,7 +1543,7 @@ function resizeImage(file){
                         () => {
 
                             const maxSize =
-                                600;
+                                500;
 
 
                             let width =
@@ -1491,15 +1617,10 @@ function resizeImage(file){
                             );
 
 
-                            /*
-                               JPEG quality 0.65
-                               giúp giảm dữ liệu
-                            */
-
                             resolve(
                                 canvas.toDataURL(
                                     "image/jpeg",
-                                    .65
+                                    .55
                                 )
                             );
 
@@ -1516,11 +1637,12 @@ function resizeImage(file){
 
         }
     );
+
 }
 
 
 /* =====================================================
-   HANDLE IMAGES
+   HANDLE IMAGE
 ===================================================== */
 
 async function handleImages(event){
@@ -1531,19 +1653,13 @@ async function handleImages(event){
         );
 
 
-    uploadedImages = [];
-
-
-    /*
-       tối đa 5 ảnh
-    */
-
-    const selected =
-        files.slice(0,5);
+    uploadedImages =
+        [];
 
 
     for(
-        const file of selected
+        const file
+        of files.slice(0,5)
     ){
 
         if(
@@ -1553,14 +1669,14 @@ async function handleImages(event){
             continue;
 
 
-        const image =
+        const src =
             await resizeImage(
                 file
             );
 
 
         uploadedImages.push(
-            image
+            src
         );
 
     }
@@ -1572,7 +1688,7 @@ async function handleImages(event){
 
 
 /* =====================================================
-   IMAGE PREVIEW
+   PREVIEW IMAGES
 ===================================================== */
 
 function renderPreviews(){
@@ -1639,7 +1755,24 @@ function removeImage(index){
 
 
 /* =====================================================
-   FALLING TEXT
+   WAIT
+===================================================== */
+
+function wait(ms){
+
+    return new Promise(
+        resolve =>
+            setTimeout(
+                resolve,
+                ms
+            )
+    );
+
+}
+
+
+/* =====================================================
+   BACKGROUND RAIN
 ===================================================== */
 
 function createRain(text){
@@ -1651,10 +1784,6 @@ function createRain(text){
     rain.innerHTML =
         "";
 
-
-    /*
-       150 chữ rơi
-    */
 
     for(
         let i=0;
@@ -1682,8 +1811,8 @@ function createRain(text){
 
 
         element.style.fontSize =
-            11+
-            Math.random()*23+
+            10+
+            Math.random()*20+
             "px";
 
 
@@ -1700,7 +1829,7 @@ function createRain(text){
 
         element.style.opacity =
             .2+
-            Math.random()*.55;
+            Math.random()*.5;
 
 
         rain.appendChild(
@@ -1713,16 +1842,195 @@ function createRain(text){
 
 
 /* =====================================================
+   SIDE PHOTO
+===================================================== */
+
+async function showSidePhoto(
+    src,
+    index
+){
+
+    if(!src)
+        return;
+
+
+    const container =
+        $("sidePhotos");
+
+
+    const img =
+        document.createElement(
+            "img"
+        );
+
+
+    img.className =
+        "sidePhoto";
+
+
+    /*
+       xen kẽ trái / phải
+    */
+
+    if(index % 2 === 0){
+
+        img.classList.add(
+            "left"
+        );
+
+    }
+    else{
+
+        img.classList.add(
+            "right"
+        );
+
+    }
+
+
+    /*
+       hơi lệch dọc
+    */
+
+    img.style.top =
+        (
+            20+
+            Math.random()*55
+        )+
+        "%";
+
+
+    img.src =
+        src;
+
+
+    container.appendChild(
+        img
+    );
+
+}
+
+
+/* =====================================================
+   FINAL PHOTOS
+===================================================== */
+
+function showAllPhotos(){
+
+    const container =
+        $("finalPhotos");
+
+
+    container.innerHTML =
+        "";
+
+
+    currentData.images
+        .forEach(
+            (src,index) => {
+
+                const img =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                img.className =
+                    "finalPhoto";
+
+
+                img.src =
+                    src;
+
+
+                /*
+                   vị trí cố định quanh màn hình
+                */
+
+                const positions = [
+
+                    {
+                        left:"2%",
+                        top:"12%",
+                        rotate:"-8deg"
+                    },
+
+                    {
+                        right:"2%",
+                        top:"12%",
+                        rotate:"8deg"
+                    },
+
+                    {
+                        left:"3%",
+                        bottom:"10%",
+                        rotate:"7deg"
+                    },
+
+                    {
+                        right:"3%",
+                        bottom:"10%",
+                        rotate:"-7deg"
+                    },
+
+                    {
+                        left:"50%",
+                        top:"3%",
+                        rotate:"0deg"
+                    }
+
+                ];
+
+
+                const p =
+                    positions[index];
+
+
+                if(p.left)
+                    img.style.left =
+                        p.left;
+
+
+                if(p.right)
+                    img.style.right =
+                        p.right;
+
+
+                if(p.top)
+                    img.style.top =
+                        p.top;
+
+
+                if(p.bottom)
+                    img.style.bottom =
+                        p.bottom;
+
+
+                img.style.transform =
+                    `rotate(${p.rotate})`;
+
+
+                container.appendChild(
+                    img
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
    HEART RAIN
 ===================================================== */
 
 function createLoveRain(){
 
-    const rain =
+    const container =
         $("loveRain");
 
 
-    rain.innerHTML =
+    container.innerHTML =
         "";
 
 
@@ -1740,21 +2048,21 @@ function createLoveRain(){
 
     for(
         let i=0;
-        i<160;
+        i<180;
         i++
     ){
 
-        const element =
+        const heart =
             document.createElement(
                 "div"
             );
 
 
-        element.className =
+        heart.className =
             "love";
 
 
-        element.innerText =
+        heart.innerText =
             symbols[
                 Math.floor(
                     Math.random()*
@@ -1763,88 +2071,38 @@ function createLoveRain(){
             ];
 
 
-        element.style.left =
+        heart.style.left =
             Math.random()*100+
             "%";
 
 
-        element.style.fontSize =
+        heart.style.fontSize =
             10+
             Math.random()*27+
             "px";
 
 
-        element.style.animationDuration =
-            3.5+
+        heart.style.animationDuration =
+            3+
             Math.random()*5+
             "s";
 
 
-        element.style.animationDelay =
-            Math.random()*2+
+        heart.style.animationDelay =
+            Math.random()*3+
             "s";
 
 
-        element.style.opacity =
+        heart.style.opacity =
             .4+
             Math.random()*.6;
 
 
-        rain.appendChild(
-            element
+        container.appendChild(
+            heart
         );
 
     }
-
-}
-
-
-/* =====================================================
-   SHOW PHOTO
-===================================================== */
-
-async function showPhoto(src){
-
-    const screen =
-        $("photoScreen");
-
-
-    screen.innerHTML =
-        "";
-
-
-    if(!src)
-        return;
-
-
-    const img =
-        document.createElement(
-            "img"
-        );
-
-
-    img.className =
-        "photo";
-
-
-    img.src =
-        src;
-
-
-    screen.appendChild(
-        img
-    );
-
-
-    /*
-       Ảnh tồn tại một khoảng thời gian
-    */
-
-    await wait(2400);
-
-
-    screen.innerHTML =
-        "";
 
 }
 
@@ -1881,24 +2139,7 @@ async function playMusic(){
 
 
 /* =====================================================
-   WAIT
-===================================================== */
-
-function wait(ms){
-
-    return new Promise(
-        resolve =>
-            setTimeout(
-                resolve,
-                ms
-            )
-    );
-
-}
-
-
-/* =====================================================
-   START EXPERIENCE
+   START
 ===================================================== */
 
 async function startExperience(){
@@ -1914,10 +2155,6 @@ async function startExperience(){
         true;
 
 
-    /*
-       Ẩn màn hình chạm
-    */
-
     $("startOverlay")
         .style
         .display =
@@ -1925,16 +2162,14 @@ async function startExperience(){
 
 
     /*
-       PHÁT NHẠC TRONG
-       CLICK / TOUCH EVENT
+       QUAN TRỌNG:
+
+       phát nhạc trực tiếp
+       trong thao tác chạm
     */
 
     await playMusic();
 
-
-    /*
-       Chạy trình diễn
-    */
 
     playSequence(
         currentData
@@ -1954,15 +2189,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       PHASE 1
-       SỐ 3
-       3.0 giây
+       3
     ================================================= */
 
     count.innerHTML =
 
     `
-        <div class="number">
+        <div class="count">
             3
         </div>
     `;
@@ -1972,12 +2205,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       PHOTO 1
+       CÂU 3 + ẢNH 1
     ================================================= */
 
     if(data.images[0])
-        showPhoto(
-            data.images[0]
+        showSidePhoto(
+            data.images[0],
+            0
         );
 
 
@@ -1994,13 +2228,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       SỐ 2
+       2
     ================================================= */
 
     count.innerHTML =
 
     `
-        <div class="number">
+        <div class="count">
             2
         </div>
     `;
@@ -2010,12 +2244,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       PHOTO 2
+       CÂU 2 + ẢNH 2
     ================================================= */
 
     if(data.images[1])
-        showPhoto(
-            data.images[1]
+        showSidePhoto(
+            data.images[1],
+            1
         );
 
 
@@ -2032,13 +2267,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       SỐ 1
+       1
     ================================================= */
 
     count.innerHTML =
 
     `
-        <div class="number">
+        <div class="count">
             1
         </div>
     `;
@@ -2048,12 +2283,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       PHOTO 3
+       CÂU 1 + ẢNH 3
     ================================================= */
 
     if(data.images[2])
-        showPhoto(
-            data.images[2]
+        showSidePhoto(
+            data.images[2],
+            2
         );
 
 
@@ -2070,12 +2306,27 @@ async function playSequence(data){
 
 
     /* =================================================
-       PHOTO 4
+       ẢNH 4
     ================================================= */
 
     if(data.images[3])
-        showPhoto(
-            data.images[3]
+        showSidePhoto(
+            data.images[3],
+            3
+        );
+
+
+    await wait(1200);
+
+
+    /* =================================================
+       ẢNH 5
+    ================================================= */
+
+    if(data.images[4])
+        showSidePhoto(
+            data.images[4],
+            4
         );
 
 
@@ -2083,8 +2334,13 @@ async function playSequence(data){
 
 
     /* =================================================
-       FINAL HEART
+       CUỐI CÙNG
+
+       TẤT CẢ CÙNG HIỆN
     ================================================= */
+
+    showAllPhotos();
+
 
     count.innerHTML =
 
@@ -2099,7 +2355,6 @@ async function playSequence(data){
                 alt="Heart"
             >
 
-
             <div class="heartMessage">
 
                 ${escapeHTML(data.final)}
@@ -2111,8 +2366,17 @@ async function playSequence(data){
 
 
     /*
-       TIMING:
-       tim + heart
+       Xoá ảnh side để tránh trùng
+    */
+
+    $("sidePhotos")
+        .style
+        .display =
+        "none";
+
+
+    /*
+       BẮT ĐẦU MƯA TIM
     */
 
     createLoveRain();
@@ -2245,8 +2509,7 @@ function createQR(){
 
 
     /*
-       Kiểm tra độ dài.
-       QR quá lớn sẽ khó quét.
+       QR quá lớn
     */
 
     if(
@@ -2255,7 +2518,7 @@ function createQR(){
     ){
 
         alert(
-            "Dữ liệu QR đang quá lớn. Hãy giảm số lượng ảnh hoặc chọn ảnh nhẹ hơn."
+            "QR quá lớn. Hãy giảm số lượng ảnh hoặc chọn ảnh nhẹ hơn."
         );
 
         return;
@@ -2317,19 +2580,17 @@ function copyLink(){
             .innerText
         )
         .then(
-
             () =>
                 alert(
                     "Đã copy link 💗"
                 )
-
         );
 
 }
 
 
 /* =====================================================
-   OPEN FROM QR
+   OPEN QR
 ===================================================== */
 
 function openFromQR(){
@@ -2337,11 +2598,8 @@ function openFromQR(){
     if(
         !location.hash
         .startsWith("#play=")
-    ){
-
+    )
         return;
-
-    }
 
 
     try{
@@ -2351,14 +2609,10 @@ function openFromQR(){
             .substring(6);
 
 
-        const data =
+        currentData =
             decodeData(
                 encoded
             );
-
-
-        currentData =
-            data;
 
 
         /*
@@ -2371,19 +2625,10 @@ function openFromQR(){
             "none";
 
 
-        /*
-           HIỆN EXPERIENCE
-        */
-
         $("stage")
             .classList
             .add("show");
 
-
-        /*
-           KHÔNG CÓ NÚT X
-           KHÔNG CÓ CÁCH QUAY LẠI
-        */
 
         $("startOverlay")
             .style
@@ -2392,7 +2637,7 @@ function openFromQR(){
 
 
         createRain(
-            data.bg
+            currentData.bg
         );
 
     }
@@ -2408,7 +2653,7 @@ function openFromQR(){
 
 
 /* =====================================================
-   START
+   INIT
 ===================================================== */
 
 openFromQR();
@@ -2418,4 +2663,3 @@ openFromQR();
 </body>
 
 </html>
-```
