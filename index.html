@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width,
-             initial-scale=1.0,
-             maximum-scale=1.0,
-             user-scalable=no"
+  name="viewport"
+  content="width=device-width,
+           initial-scale=1,
+           maximum-scale=1,
+           user-scalable=no"
 >
 
 <title>QR Đếm Ngược 💗</title>
@@ -24,28 +22,23 @@
 ===================================================== */
 
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 html,
 body{
-
-    margin:0;
-    padding:0;
-
-    width:100%;
-    min-height:100%;
-
-    background:#090912;
-
-    color:white;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  background:#090912;
+  color:#fff;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
 
@@ -54,107 +47,95 @@ body{
 ===================================================== */
 
 .creator{
-
-    width:min(950px,94%);
-
-    margin:auto;
-
-    padding:30px 0 60px;
+  width:min(900px,94%);
+  margin:auto;
+  padding:25px 0 60px;
 }
 
 .logo{
-
-    font-size:32px;
-
-    font-weight:900;
-
-    margin-bottom:5px;
+  font-size:32px;
+  font-weight:900;
 }
 
 .subtitle{
-
-    opacity:.6;
-
-    margin-bottom:25px;
+  opacity:.55;
+  margin:5px 0 25px;
 }
 
 .card{
-
-    background:#151522;
-
-    border:1px solid #2c2c42;
-
-    border-radius:24px;
-
-    padding:24px;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.45);
-
-    margin-bottom:20px;
+  background:#151522;
+  border:1px solid #2d2d42;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 20px 70px #0008;
 }
 
 .grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
 }
 
 .full{
-
-    grid-column:
-        1/-1;
+  grid-column:1/-1;
 }
 
 label{
-
-    display:block;
-
-    font-weight:800;
-
-    margin-bottom:8px;
+  display:block;
+  font-weight:800;
+  margin-bottom:7px;
 }
 
-input[type="text"]{
-
-    width:100%;
-
-    padding:14px;
-
-    border-radius:14px;
-
-    border:1px solid #3c3c51;
-
-    background:#0b0b13;
-
-    color:white;
-
-    font-size:16px;
-
-    outline:none;
+input[type="text"],
+input[type="password"]{
+  width:100%;
+  padding:14px;
+  border-radius:13px;
+  border:1px solid #414155;
+  background:#090912;
+  color:#fff;
+  outline:none;
+  font-size:16px;
 }
 
-input[type="text"]:focus{
-
-    border-color:#ff4f91;
-
-    box-shadow:
-        0 0 0 3px #ff4f9122;
+input:focus{
+  border-color:#ff4f91;
 }
 
 small{
+  display:block;
+  margin-top:6px;
+  opacity:.5;
+  line-height:1.4;
+}
 
-    display:block;
 
-    opacity:.5;
+/* =====================================================
+   GITHUB SETTINGS
+===================================================== */
 
-    margin-top:7px;
+.githubBox{
+  border:1px solid #343448;
+  background:#0d0d16;
+  border-radius:17px;
+  padding:17px;
+}
 
-    line-height:1.4;
+.githubTitle{
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.security{
+  margin-top:12px;
+  padding:12px;
+  border-radius:12px;
+  background:#ffcc0010;
+  border:1px solid #ffcc0030;
+  font-size:13px;
+  line-height:1.5;
 }
 
 
@@ -163,188 +144,136 @@ small{
 ===================================================== */
 
 .imageBox{
-
-    display:block;
-
-    border:2px dashed #39394f;
-
-    border-radius:18px;
-
-    padding:20px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.2s;
+  border:2px dashed #3d3d53;
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+  cursor:pointer;
 }
 
 .imageBox:hover{
-
-    border-color:#ff4f91;
-
-    background:#ff4f9108;
+  border-color:#ff4f91;
 }
 
 .imageBox input{
-
-    display:none;
+  display:none;
 }
 
 .imageIcon{
-
-    font-size:40px;
-
-    margin-bottom:8px;
+  font-size:40px;
 }
 
 .imagePreview{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
 }
 
 .previewItem{
-
-    position:relative;
-
-    width:85px;
-    height:85px;
-
-    border-radius:12px;
-
-    overflow:hidden;
+  position:relative;
+  width:82px;
+  height:100px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#090912;
 }
 
 .previewItem img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .removeImage{
-
-    position:absolute;
-
-    top:4px;
-    right:4px;
-
-    width:23px;
-    height:23px;
-
-    padding:0;
-
-    border-radius:50%;
-
-    background:#000b;
-
-    color:white;
-
-    font-size:14px;
+  position:absolute;
+  top:4px;
+  right:4px;
+  width:23px;
+  height:23px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#000c;
+  color:white;
+  font-weight:900;
 }
 
 
 /* =====================================================
-   BUTTON
+   BUTTONS
 ===================================================== */
 
 .buttons{
-
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-top:22px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
 button{
-
-    border:0;
-
-    cursor:pointer;
-
-    border-radius:999px;
-
-    padding:14px 24px;
-
-    font-size:16px;
-
-    font-weight:900;
+  border:0;
+  border-radius:999px;
+  padding:14px 22px;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
 }
 
 .primary{
-
-    background:#ff4f91;
-
-    color:white;
-
-    box-shadow:
-        0 12px 35px #ff4f9155;
+  background:#ff4f91;
+  color:#fff;
+  box-shadow:0 10px 35px #ff4f9144;
 }
 
 .secondary{
-
-    background:#2d2d41;
-
-    color:white;
+  background:#303044;
+  color:#fff;
 }
 
 
 /* =====================================================
-   QR
+   QR RESULT
 ===================================================== */
 
 .result{
+  display:none;
+}
 
-    display:none;
-
-    grid-template-columns:
-        220px 1fr;
-
-    gap:25px;
-
-    align-items:center;
+.qrArea{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:25px;
+  align-items:center;
 }
 
 .qr{
-
-    width:210px;
-    height:210px;
-
-    background:white;
-
-    padding:15px;
-
-    border-radius:18px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
+  background:#fff;
+  padding:15px;
+  border-radius:17px;
+  width:210px;
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .share{
+  padding:13px;
+  border-radius:12px;
+  background:#090912;
+  color:#ff9fc4;
+  word-break:break-all;
+  font-size:12px;
+}
 
-    background:#0b0b13;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    word-break:break-all;
-
-    font-size:12px;
-
-    color:#ff9fc4;
+.status{
+  margin-top:15px;
+  padding:13px;
+  border-radius:12px;
+  background:#090912;
+  line-height:1.5;
+  font-size:14px;
 }
 
 
@@ -353,29 +282,23 @@ button{
 ===================================================== */
 
 .stage{
+  position:fixed;
+  inset:0;
+  display:none;
+  overflow:hidden;
 
-    position:fixed;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #43243e,
+      #090912 75%
+    );
 
-    inset:0;
-
-    z-index:100;
-
-    display:none;
-
-    overflow:hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 40%,
-            #41253f,
-            #090912 75%
-        );
+  z-index:999;
 }
 
 .stage.show{
-
-    display:block;
+  display:block;
 }
 
 
@@ -384,274 +307,208 @@ button{
 ===================================================== */
 
 #bgMusic{
-
-    display:none;
+  display:none;
 }
 
 
 /* =====================================================
-   START
+   START SCREEN
 ===================================================== */
 
 .startOverlay{
+  position:absolute;
+  inset:0;
+  z-index:100;
 
-    position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    inset:0;
+  text-align:center;
 
-    z-index:100;
+  background:
+    radial-gradient(
+      circle,
+      #4b2746,
+      #090912 75%
+    );
 
-    display:flex;
+  backdrop-filter:blur(10px);
 
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            #492744,
-            #090912 75%
-        );
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
+  cursor:pointer;
 }
 
 .startHeart{
+  font-size:120px;
+  line-height:1;
+  color:#ff4f91;
 
-    font-size:
-        clamp(90px,25vw,140px);
+  text-shadow:
+    0 0 25px #ff4f91,
+    0 0 80px #ff4f9188;
 
-    color:#ff4f91;
-
-    line-height:1;
-
-    text-shadow:
-
-        0 0 25px #ff4f91,
-
-        0 0 70px #ff4f9188;
-
-    animation:
-        heartbeat 1.2s infinite;
+  animation:heartBeat 1.2s infinite;
 }
 
 .startTitle{
-
-    font-size:
-        clamp(23px,6vw,42px);
-
-    font-weight:900;
-
-    margin:25px 0 20px;
+  margin:20px 0;
+  font-size:clamp(22px,6vw,40px);
+  font-weight:900;
 }
 
 .startButton{
-
-    display:inline-block;
-
-    padding:16px 30px;
-
-    border-radius:999px;
-
-    background:#ff4f91;
-
-    font-weight:900;
-
-    box-shadow:
-        0 12px 40px #ff4f9166;
+  display:inline-block;
+  padding:16px 30px;
+  border-radius:999px;
+  background:#ff4f91;
+  font-weight:900;
+  box-shadow:0 10px 40px #ff4f9166;
 }
 
 .startHint{
-
-    margin-top:14px;
-
-    font-size:13px;
-
-    opacity:.45;
+  margin-top:12px;
+  opacity:.45;
+  font-size:13px;
 }
 
-@keyframes heartbeat{
+@keyframes heartBeat{
 
-    0%,100%{
-        transform:scale(1);
-    }
+  0%,100%{
+    transform:scale(1);
+  }
 
-    15%{
-        transform:scale(1.13);
-    }
+  15%{
+    transform:scale(1.13);
+  }
 
-    30%{
-        transform:scale(1);
-    }
+  30%{
+    transform:scale(1);
+  }
 
 }
 
 
 /* =====================================================
-   BACKGROUND TEXT
+   BACKGROUND TEXT RAIN
 ===================================================== */
 
 .rain{
-
-    position:absolute;
-
-    inset:-30%;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
-    opacity:.42;
+  position:absolute;
+  inset:-30%;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:.45;
 }
 
 .drop{
+  position:absolute;
+  top:-10vh;
+  white-space:nowrap;
 
-    position:absolute;
+  color:#ff9fc4;
 
-    top:-10vh;
+  font-weight:800;
 
-    color:#ff9fc4;
+  text-shadow:
+    0 0 15px #ff4f9155;
 
-    white-space:nowrap;
-
-    font-weight:800;
-
-    animation:
-        fall linear infinite;
-
-    text-shadow:
-        0 0 12px #ff4f9144;
+  animation:fall linear infinite;
 }
 
 @keyframes fall{
 
-    to{
+  to{
+    transform:
+      translateY(140vh)
+      rotate(5deg);
+  }
 
-        transform:
-            translateY(135vh)
-            rotate(5deg);
-    }
 }
 
 
 /* =====================================================
-   CENTER CONTENT
+   PRESENTATION
 ===================================================== */
 
 .presentation{
+  position:absolute;
+  inset:0;
 
-    position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    inset:0;
+  padding:
+    25px 25%;
 
-    z-index:10;
+  text-align:center;
 
-    display:flex;
+  z-index:10;
 
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:
-        30px 25%;
-
-    text-align:center;
-
-    pointer-events:none;
+  pointer-events:none;
 }
 
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
-
 .count{
+  font-size:min(34vw,190px);
+  font-weight:1000;
 
-    font-size:
-        min(34vw,200px);
+  text-shadow:
+    0 0 30px #ff4f91,
+    0 0 80px #ff4f9166;
 
-    font-weight:1000;
-
-    line-height:1;
-
-    text-shadow:
-
-        0 0 30px #ff4f91,
-
-        0 0 80px #ff4f9166;
-
-    animation:
-        numberIn 1.2s ease;
+  animation:numberIn 1s ease;
 }
 
 .message{
+  max-width:650px;
 
-    max-width:650px;
+  font-size:
+    clamp(25px,5.5vw,58px);
 
-    font-size:
-        clamp(26px,5.8vw,58px);
+  font-weight:900;
 
-    font-weight:900;
+  line-height:1.15;
 
-    line-height:1.15;
+  text-shadow:
+    0 4px 20px #000c;
 
-    text-shadow:
-        0 4px 18px #0009;
-
-    animation:
-        messageIn 1s ease;
+  animation:messageIn 1s ease;
 }
 
 @keyframes numberIn{
 
-    0%{
+  from{
+    opacity:0;
+    transform:scale(.2);
+  }
 
-        opacity:0;
+  70%{
+    transform:scale(1.12);
+  }
 
-        transform:scale(.15);
-    }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 
-    65%{
-
-        transform:scale(1.15);
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:scale(1);
-    }
 }
 
 @keyframes messageIn{
 
-    from{
+  from{
+    opacity:0;
+    transform:
+      translateY(30px)
+      scale(.9);
+  }
 
-        opacity:0;
+  to{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
 
-        transform:
-            translateY(30px)
-            scale(.94);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
 }
 
 
@@ -660,230 +517,169 @@ button{
 ===================================================== */
 
 .sidePhotos{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:20;
-
-    pointer-events:none;
+  position:absolute;
+  inset:0;
+  z-index:20;
+  pointer-events:none;
 }
 
 .sidePhoto{
+  position:absolute;
 
-    position:absolute;
+  width:min(21vw,230px);
+  height:min(29vw,300px);
 
-    width:
-        min(23vw,260px);
+  object-fit:cover;
 
-    height:
-        min(30vw,340px);
+  border-radius:20px;
 
-    object-fit:cover;
+  border:3px solid #fff;
 
-    border-radius:22px;
+  box-shadow:
+    0 15px 45px #000b,
+    0 0 35px #ff4f9166;
 
-    border:3px solid white;
+  opacity:0;
 
-    box-shadow:
-
-        0 15px 45px #0009,
-
-        0 0 35px #ff4f9166;
-
-    opacity:0;
-
-    animation:
-        sidePhotoIn 1.2s forwards;
+  animation:photoIn 1.2s forwards;
 }
-
-
-/* LEFT */
 
 .sidePhoto.left{
-
-    left:
-        max(2vw,18px);
-
-    transform:
-        rotate(-7deg)
-        translateX(-20px);
+  left:max(2vw,14px);
 }
-
-
-/* RIGHT */
 
 .sidePhoto.right{
-
-    right:
-        max(2vw,18px);
-
-    transform:
-        rotate(7deg)
-        translateX(20px);
+  right:max(2vw,14px);
 }
 
-@keyframes sidePhotoIn{
+@keyframes photoIn{
 
-    from{
+  from{
+    opacity:0;
+    transform:
+      scale(.7)
+      translateY(25px)
+      rotate(0);
+  }
 
-        opacity:0;
+  to{
+    opacity:1;
+  }
 
-        transform:
-            scale(.75)
-            translateY(25px)
-            rotate(0);
-    }
-
-    to{
-
-        opacity:1;
-    }
 }
 
 
 /* =====================================================
-   FINAL AREA
+   FINAL
 ===================================================== */
 
 .finalArea{
+  position:relative;
 
-    position:relative;
+  width:min(58vw,480px);
+  height:min(58vw,480px);
 
-    width:
-        min(55vw,470px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    height:
-        min(55vw,470px);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    animation:
-        finalAppear 1.5s
-        cubic-bezier(.17,.89,.32,1.28);
+  animation:
+    finalIn 1.5s
+    cubic-bezier(.17,.89,.32,1.28);
 }
 
 .heartImage{
+  position:absolute;
 
-    position:absolute;
+  width:100%;
+  height:100%;
 
-    width:100%;
-    height:100%;
+  object-fit:contain;
 
-    object-fit:contain;
+  filter:
+    drop-shadow(0 0 18px #ff4f91)
+    drop-shadow(0 0 60px #ff4f9188)
+    drop-shadow(0 0 110px #ff4f9144);
 
-    filter:
-
-        drop-shadow(
-            0 0 20px #ff4f91
-        )
-
-        drop-shadow(
-            0 0 60px #ff4f9188
-        )
-
-        drop-shadow(
-            0 0 110px #ff4f9144
-        );
-
-    animation:
-        heartPulse 2s infinite;
+  animation:
+    heartPulse 2s infinite;
 }
 
 .heartMessage{
+  position:relative;
+  z-index:5;
 
-    position:relative;
+  width:53%;
 
-    z-index:5;
+  text-align:center;
 
-    width:55%;
+  font-size:
+    clamp(19px,4.4vw,42px);
 
-    text-align:center;
+  font-weight:1000;
 
-    font-size:
-        clamp(20px,4.5vw,42px);
+  line-height:1.13;
 
-    font-weight:1000;
+  color:#fff;
 
-    line-height:1.12;
-
-    text-shadow:
-
-        0 3px 8px #79183f,
-
-        0 0 20px #ffffffaa;
+  text-shadow:
+    0 3px 8px #79183f,
+    0 0 20px #fff;
 }
 
-@keyframes finalAppear{
+@keyframes finalIn{
 
-    from{
+  from{
+    opacity:0;
+    transform:scale(.05);
+  }
 
-        opacity:0;
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 
-        transform:scale(.05);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-    }
 }
 
 @keyframes heartPulse{
 
-    0%,100%{
-        transform:scale(1);
-    }
+  0%,100%{
+    transform:scale(1);
+  }
 
-    50%{
-        transform:scale(1.045);
-    }
+  50%{
+    transform:scale(1.045);
+  }
+
 }
 
 
 /* =====================================================
-   FINAL CONTENT
-   Tất cả ảnh giữ lại
+   FINAL PHOTOS
 ===================================================== */
 
 .finalPhotos{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:5;
-
-    pointer-events:none;
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
 }
 
 .finalPhoto{
+  position:absolute;
 
-    position:absolute;
+  width:min(17vw,170px);
+  height:min(23vw,220px);
 
-    width:
-        min(18vw,180px);
+  object-fit:cover;
 
-    height:
-        min(23vw,220px);
+  border:3px solid #fff;
+  border-radius:18px;
 
-    object-fit:cover;
+  box-shadow:
+    0 12px 35px #000b;
 
-    border-radius:18px;
-
-    border:3px solid white;
-
-    box-shadow:
-        0 12px 35px #0009;
-
-    opacity:.9;
+  opacity:.92;
 }
 
 
@@ -892,41 +688,34 @@ button{
 ===================================================== */
 
 .loveRain{
-
-    position:absolute;
-
-    inset:-20%;
-
-    z-index:40;
-
-    overflow:hidden;
-
-    pointer-events:none;
+  position:absolute;
+  inset:-20%;
+  z-index:50;
+  overflow:hidden;
+  pointer-events:none;
 }
 
 .love{
+  position:absolute;
+  top:-10vh;
 
-    position:absolute;
+  animation:
+    loveFall linear forwards;
 
-    top:-10vh;
-
-    animation:
-        loveFall linear forwards;
-
-    text-shadow:
-        0 0 12px #ff4f91aa;
+  text-shadow:
+    0 0 15px #ff4f91aa;
 }
 
 @keyframes loveFall{
 
-    to{
+  to{
+    transform:
+      translateY(140vh)
+      rotate(30deg);
 
-        transform:
-            translateY(135vh)
-            rotate(30deg);
+    opacity:.05;
+  }
 
-        opacity:.05;
-    }
 }
 
 
@@ -936,94 +725,65 @@ button{
 
 @media(max-width:700px){
 
-    .creator{
+  .creator{
+    padding-top:18px;
+  }
 
-        padding-top:20px;
-    }
+  .grid{
+    grid-template-columns:1fr;
+  }
 
+  .full{
+    grid-column:auto;
+  }
 
-    .grid{
+  .qrArea{
+    grid-template-columns:1fr;
+  }
 
-        grid-template-columns:1fr;
-    }
+  .qr{
+    margin:auto;
+  }
 
+  .presentation{
+    padding:
+      25px 23%;
+  }
 
-    .full{
+  .message{
+    font-size:
+      clamp(22px,7vw,38px);
+  }
 
-        grid-column:auto;
-    }
+  .sidePhoto{
+    width:24vw;
+    height:31vw;
 
+    border-radius:13px;
+    border-width:2px;
+  }
 
-    .result{
+  .finalArea{
+    width:64vw;
+    height:64vw;
+  }
 
-        grid-template-columns:1fr;
-    }
+  .heartMessage{
+    font-size:
+      clamp(17px,4.7vw,30px);
+  }
 
+  .finalPhoto{
+    width:18vw;
+    height:24vw;
 
-    .qr{
-
-        margin:auto;
-    }
-
-
-    .presentation{
-
-        padding:
-            30px 23%;
-    }
-
-
-    .message{
-
-        font-size:
-            clamp(23px,7vw,38px);
-    }
-
-
-    .sidePhoto{
-
-        width:24vw;
-
-        height:31vw;
-
-        border-radius:14px;
-
-        border-width:2px;
-    }
-
-
-    .finalArea{
-
-        width:62vw;
-
-        height:62vw;
-    }
-
-
-    .heartMessage{
-
-        width:53%;
-
-        font-size:
-            clamp(17px,4.8vw,30px);
-    }
-
-
-    .finalPhoto{
-
-        width:18vw;
-
-        height:24vw;
-
-        border-radius:12px;
-
-        border-width:2px;
-    }
+    border-radius:12px;
+    border-width:2px;
+  }
 
 }
 
 </style>
-
 </head>
 
 
@@ -1034,347 +794,425 @@ button{
      CREATOR
 ===================================================== -->
 
-<div
-    class="creator"
-    id="creator"
->
+<div class="creator" id="creator">
 
-    <div class="logo">
-        💌 QR Đếm Ngược
-    </div>
+  <div class="logo">
+    💌 QR Đếm Ngược V8
+  </div>
 
-    <div class="subtitle">
-        Tạo một khoảnh khắc đặc biệt dành cho người ấy.
-    </div>
+  <div class="subtitle">
+    Tạo một khoảnh khắc đặc biệt dành cho người ấy.
+  </div>
 
 
-    <div class="card">
+  <!-- =================================================
+       GITHUB
+  ================================================== -->
 
-        <div class="grid">
+  <div class="card">
 
+    <div class="githubBox">
 
-            <!-- =================================================
-                 BACKGROUND
-            ================================================== -->
+      <div class="githubTitle">
+        ⚙️ GitHub Repository
+      </div>
 
-            <div class="full">
+      <div class="grid">
 
-                <label>
-                    1. Câu nền
-                </label>
+        <div>
 
-                <input
-                    type="text"
-                    id="bg"
-                    value="Anh có điều muốn nói"
-                >
+          <label>
+            GitHub Username
+          </label>
 
-                <small>
-                    3–5 chữ.
-                </small>
-
-            </div>
-
-
-            <!-- =================================================
-                 3
-            ================================================== -->
-
-            <div>
-
-                <label>
-                    2. Câu khi 3
-                </label>
-
-                <input
-                    type="text"
-                    id="c3"
-                    value="Có một điều rất đặc biệt"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 2
-            ================================================== -->
-
-            <div>
-
-                <label>
-                    3. Câu khi 2
-                </label>
-
-                <input
-                    type="text"
-                    id="c2"
-                    value="Em sắp biết rồi đó"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 1
-            ================================================== -->
-
-            <div>
-
-                <label>
-                    4. Câu khi 1
-                </label>
-
-                <input
-                    type="text"
-                    id="c1"
-                    value="Chỉ còn một chút thôi"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 FINAL
-            ================================================== -->
-
-            <div class="full">
-
-                <label>
-                    5. Câu cuối trong trái tim
-                </label>
-
-                <input
-                    type="text"
-                    id="final"
-                    value="Anh muốn được bên em thật lâu"
-                >
-
-                <small>
-                    5–8 chữ.
-                </small>
-
-            </div>
-
-
-            <!-- =================================================
-                 IMAGES
-            ================================================== -->
-
-            <div class="full">
-
-                <label>
-                    6. Hình ảnh của hai đứa 🥰
-                </label>
-
-
-                <label class="imageBox">
-
-                    <input
-                        type="file"
-                        id="photos"
-                        accept="image/*"
-                        multiple
-                        onchange="handleImages(event)"
-                    >
-
-
-                    <div class="imageIcon">
-                        🖼️
-                    </div>
-
-                    <strong>
-                        Chọn ảnh
-                    </strong>
-
-                    <small>
-                        Nên chọn 3–5 ảnh.
-                        Ảnh sẽ tự động resize và nén.
-                    </small>
-
-                </label>
-
-
-                <div
-                    class="imagePreview"
-                    id="imagePreview"
-                ></div>
-
-            </div>
-
+          <input
+            type="text"
+            id="githubUser"
+            value="YOUR_GITHUB_USERNAME"
+          >
 
         </div>
-
-
-        <div class="buttons">
-
-            <button
-                class="primary"
-                onclick="preview()"
-            >
-                💗 Xem thử
-            </button>
-
-
-            <button
-                class="secondary"
-                onclick="createQR()"
-            >
-                🔳 Tạo QR
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         QR
-    ===================================================== -->
-
-    <div
-        class="card result"
-        id="result"
-    >
-
-        <div
-            class="qr"
-            id="qrcode"
-        ></div>
 
 
         <div>
 
-            <h2>
-                QR đã sẵn sàng 💗
-            </h2>
+          <label>
+            Repository
+          </label>
 
-            <p>
-                Quét QR để bắt đầu.
-            </p>
-
-            <div
-                class="share"
-                id="shareUrl"
-            ></div>
-
-            <br>
-
-            <button
-                class="secondary"
-                onclick="copyLink()"
-            >
-                Copy link
-            </button>
+          <input
+            type="text"
+            id="githubRepo"
+            value="qr-countdown"
+          >
 
         </div>
 
+
+        <div>
+
+          <label>
+            Branch
+          </label>
+
+          <input
+            type="text"
+            id="githubBranch"
+            value="main"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label>
+            GitHub Token
+          </label>
+
+          <input
+            type="password"
+            id="githubToken"
+            placeholder="ghp_... / github_pat_..."
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="security">
+
+        🔐 Token chỉ nằm trong bộ nhớ của trình duyệt
+        trong phiên hiện tại, không được lưu vào QR
+        và không được ghi vào repository.
+
+        <br><br>
+
+        Token cần quyền:
+        <strong>Contents → Read and write</strong>.
+
+      </div>
+
     </div>
+
+  </div>
+
+
+  <!-- =================================================
+       CONTENT
+  ================================================== -->
+
+  <div class="card">
+
+    <div class="grid">
+
+
+      <div class="full">
+
+        <label>
+          1. Câu nền
+        </label>
+
+        <input
+          type="text"
+          id="bg"
+          value="Anh có điều muốn nói"
+        >
+
+        <small>
+          3–5 chữ. Câu này sẽ rơi liên tục làm background.
+        </small>
+
+      </div>
+
+
+      <div>
+
+        <label>
+          2. Câu khi 3
+        </label>
+
+        <input
+          type="text"
+          id="c3"
+          value="Có một điều rất đặc biệt"
+        >
+
+      </div>
+
+
+      <div>
+
+        <label>
+          3. Câu khi 2
+        </label>
+
+        <input
+          type="text"
+          id="c2"
+          value="Em sắp biết rồi đó"
+        >
+
+      </div>
+
+
+      <div>
+
+        <label>
+          4. Câu khi 1
+        </label>
+
+        <input
+          type="text"
+          id="c1"
+          value="Chỉ còn một chút thôi"
+        >
+
+      </div>
+
+
+      <div class="full">
+
+        <label>
+          5. Câu cuối trong trái tim
+        </label>
+
+        <input
+          type="text"
+          id="final"
+          value="Anh muốn được bên em thật lâu"
+        >
+
+        <small>
+          5–8 chữ.
+        </small>
+
+      </div>
+
+
+      <!-- =================================================
+           IMAGES
+      ================================================== -->
+
+      <div class="full">
+
+        <label>
+          6. Hình ảnh của hai đứa 🥰
+        </label>
+
+        <label class="imageBox">
+
+          <input
+            type="file"
+            id="photos"
+            accept="image/*"
+            multiple
+            onchange="handleImages(event)"
+          >
+
+          <div class="imageIcon">
+            🖼️
+          </div>
+
+          <strong>
+            Chọn ảnh
+          </strong>
+
+          <small>
+            Có thể chọn tối đa 8 ảnh.
+            Ảnh sẽ được nén trước khi upload.
+          </small>
+
+        </label>
+
+
+        <div
+          class="imagePreview"
+          id="imagePreview"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+      <button
+        class="primary"
+        onclick="preview()"
+      >
+        💗 Xem thử
+      </button>
+
+      <button
+        class="primary"
+        onclick="createQR()"
+      >
+        🔳 Upload & Tạo QR
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       RESULT
+  ================================================== -->
+
+  <div
+    class="card result"
+    id="result"
+  >
+
+    <div class="qrArea">
+
+      <div
+        class="qr"
+        id="qrcode"
+      ></div>
+
+
+      <div>
+
+        <h2>
+          🎉 QR đã tạo thành công
+        </h2>
+
+        <p>
+          Folder ảnh đã được tạo trên GitHub.
+        </p>
+
+        <div
+          class="share"
+          id="shareUrl"
+        ></div>
+
+        <div
+          class="status"
+          id="uploadStatus"
+        ></div>
+
+        <br>
+
+        <button
+          class="secondary"
+          onclick="copyLink()"
+        >
+          📋 Copy link
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
 
 
 <!-- =====================================================
-     EXPERIENCE
+     PRESENTATION
 ===================================================== -->
 
 <div
-    class="stage"
-    id="stage"
+  class="stage"
+  id="stage"
 >
 
 
-    <!-- MUSIC -->
+  <!-- MUSIC -->
 
-    <audio
-        id="bgMusic"
-        loop
-        preload="auto"
+  <audio
+    id="bgMusic"
+    loop
+    preload="auto"
+  >
+
+    <source
+      src="music.mp3"
+      type="audio/mpeg"
     >
 
-        <source
-            src="music.mp3"
-            type="audio/mpeg"
-        >
-
-    </audio>
+  </audio>
 
 
-    <!-- START -->
+  <!-- START -->
 
-    <div
-        class="startOverlay"
-        id="startOverlay"
-        onclick="startExperience()"
-    >
+  <div
+    class="startOverlay"
+    id="startOverlay"
+    onclick="startExperience()"
+  >
 
-        <div>
+    <div>
 
-            <div class="startHeart">
-                ♥
-            </div>
+      <div class="startHeart">
+        ♥
+      </div>
 
-            <div class="startTitle">
-                Có một điều dành cho bạn...
-            </div>
+      <div class="startTitle">
+        Có một điều dành cho bạn...
+      </div>
 
-            <div class="startButton">
-                Chạm để mở 💗
-            </div>
+      <div class="startButton">
+        Chạm để mở 💗
+      </div>
 
-            <div class="startHint">
-                Chạm một lần để bắt đầu
-            </div>
-
-        </div>
+      <div class="startHint">
+        Chạm một lần để bắt đầu
+      </div>
 
     </div>
 
-
-    <!-- BACKGROUND -->
-
-    <div
-        class="rain"
-        id="rain"
-    ></div>
+  </div>
 
 
-    <!-- SIDE PHOTOS -->
+  <!-- BACKGROUND -->
 
-    <div
-        class="sidePhotos"
-        id="sidePhotos"
-    ></div>
-
-
-    <!-- CENTER -->
-
-    <div
-        class="presentation"
-        id="presentation"
-    >
-
-        <div
-            id="count"
-        ></div>
-
-    </div>
+  <div
+    class="rain"
+    id="rain"
+  ></div>
 
 
-    <!-- FINAL PHOTOS -->
+  <!-- SIDE PHOTOS -->
 
-    <div
-        class="finalPhotos"
-        id="finalPhotos"
-    ></div>
+  <div
+    class="sidePhotos"
+    id="sidePhotos"
+  ></div>
 
 
-    <!-- HEARTS -->
+  <!-- CENTER -->
 
-    <div
-        class="loveRain"
-        id="loveRain"
-    ></div>
+  <div
+    class="presentation"
+    id="presentation"
+  >
+
+    <div id="count"></div>
+
+  </div>
+
+
+  <!-- FINAL PHOTOS -->
+
+  <div
+    class="finalPhotos"
+    id="finalPhotos"
+  ></div>
+
+
+  <!-- HEARTS -->
+
+  <div
+    class="loveRain"
+    id="loveRain"
+  ></div>
 
 
 </div>
@@ -1384,24 +1222,36 @@ button{
 <script>
 
 /* =====================================================
-   VARIABLES
+   GLOBAL
 ===================================================== */
 
-const $ =
-    id =>
-    document.getElementById(id);
+let uploadedImages = [];
+
+let currentData = null;
+
+let started = false;
 
 
-let currentData =
-    null;
+/* =====================================================
+   $
+===================================================== */
+
+const $ = id =>
+  document.getElementById(id);
 
 
-let uploadedImages =
-    [];
+/* =====================================================
+   WAIT
+===================================================== */
 
+function wait(ms){
 
-let started =
-    false;
+  return new Promise(
+    resolve =>
+      setTimeout(resolve,ms)
+  );
+
+}
 
 
 /* =====================================================
@@ -1410,34 +1260,32 @@ let started =
 
 function wordCount(text){
 
-    return text
-        .trim()
-        .split(/\s+/)
-        .filter(Boolean)
-        .length;
+  return text
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .length;
 
 }
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(text){
 
-    return text.replace(
-        /[&<>"']/g,
+  return text.replace(
+    /[&<>"']/g,
 
-        char => ({
-
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-
-        })[char]
-    );
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    })[c]
+  );
 
 }
 
@@ -1448,27 +1296,21 @@ function escapeHTML(text){
 
 function getData(){
 
-    return {
+  return {
 
-        bg:
-            $("bg").value.trim(),
+    bg:$("bg").value.trim(),
 
-        c3:
-            $("c3").value.trim(),
+    c3:$("c3").value.trim(),
 
-        c2:
-            $("c2").value.trim(),
+    c2:$("c2").value.trim(),
 
-        c1:
-            $("c1").value.trim(),
+    c1:$("c1").value.trim(),
 
-        final:
-            $("final").value.trim(),
+    final:$("final").value.trim(),
 
-        images:
-            uploadedImages
+    images:uploadedImages
 
-    };
+  };
 
 }
 
@@ -1479,261 +1321,224 @@ function getData(){
 
 function validate(data){
 
-    if(
-        wordCount(data.bg)<3 ||
-        wordCount(data.bg)>5
-    )
-        return "Câu nền phải có 3–5 chữ.";
+  if(
+    wordCount(data.bg)<3 ||
+    wordCount(data.bg)>5
+  )
+    return "Câu nền phải có 3–5 chữ.";
 
+  if(
+    wordCount(data.c3)<3 ||
+    wordCount(data.c3)>5
+  )
+    return "Câu khi 3 phải có 3–5 chữ.";
 
-    if(
-        wordCount(data.c3)<3 ||
-        wordCount(data.c3)>5
-    )
-        return "Câu khi 3 phải có 3–5 chữ.";
+  if(
+    wordCount(data.c2)<3 ||
+    wordCount(data.c2)>5
+  )
+    return "Câu khi 2 phải có 3–5 chữ.";
 
+  if(
+    wordCount(data.c1)<3 ||
+    wordCount(data.c1)>5
+  )
+    return "Câu khi 1 phải có 3–5 chữ.";
 
-    if(
-        wordCount(data.c2)<3 ||
-        wordCount(data.c2)>5
-    )
-        return "Câu khi 2 phải có 3–5 chữ.";
+  if(
+    wordCount(data.final)<5 ||
+    wordCount(data.final)>8
+  )
+    return "Câu cuối phải có 5–8 chữ.";
 
+  if(data.images.length===0)
+    return "Hãy chọn ít nhất 1 ảnh.";
 
-    if(
-        wordCount(data.c1)<3 ||
-        wordCount(data.c1)>5
-    )
-        return "Câu khi 1 phải có 3–5 chữ.";
-
-
-    if(
-        wordCount(data.final)<5 ||
-        wordCount(data.final)>8
-    )
-        return "Câu cuối phải có 5–8 chữ.";
-
-
-    return "";
+  return "";
 
 }
 
 
 /* =====================================================
-   IMAGE RESIZE
+   RESIZE IMAGE
 ===================================================== */
 
 function resizeImage(file){
 
-    return new Promise(
-        resolve => {
+  return new Promise(resolve=>{
 
-            const reader =
-                new FileReader();
+    const reader =
+      new FileReader();
 
+    reader.onload = event=>{
 
-            reader.onload =
-                event => {
+      const img =
+        new Image();
 
-                    const img =
-                        new Image();
+      img.onload = ()=>{
 
+        const maxSize = 1200;
 
-                    img.onload =
-                        () => {
+        let w = img.width;
+        let h = img.height;
 
-                            const maxSize =
-                                500;
+        if(
+          w>maxSize ||
+          h>maxSize
+        ){
 
+          if(w>h){
 
-                            let width =
-                                img.width;
+            h =
+              h *
+              maxSize /
+              w;
 
-                            let height =
-                                img.height;
+            w =
+              maxSize;
 
+          }
+          else{
 
-                            if(
-                                width >
-                                maxSize ||
-                                height >
-                                maxSize
-                            ){
+            w =
+              w *
+              maxSize /
+              h;
 
-                                if(
-                                    width >
-                                    height
-                                ){
+            h =
+              maxSize;
 
-                                    height =
-                                        height *
-                                        maxSize /
-                                        width;
-
-                                    width =
-                                        maxSize;
-
-                                }
-                                else{
-
-                                    width =
-                                        width *
-                                        maxSize /
-                                        height;
-
-                                    height =
-                                        maxSize;
-
-                                }
-
-                            }
-
-
-                            const canvas =
-                                document.createElement(
-                                    "canvas"
-                                );
-
-
-                            canvas.width =
-                                width;
-
-                            canvas.height =
-                                height;
-
-
-                            const ctx =
-                                canvas.getContext(
-                                    "2d"
-                                );
-
-
-                            ctx.drawImage(
-                                img,
-                                0,
-                                0,
-                                width,
-                                height
-                            );
-
-
-                            resolve(
-                                canvas.toDataURL(
-                                    "image/jpeg",
-                                    .55
-                                )
-                            );
-
-                        };
-
-
-                    img.src =
-                        event.target.result;
-
-                };
-
-
-            reader.readAsDataURL(file);
+          }
 
         }
-    );
+
+        const canvas =
+          document.createElement("canvas");
+
+        canvas.width=w;
+        canvas.height=h;
+
+        const ctx =
+          canvas.getContext("2d");
+
+        ctx.drawImage(
+          img,
+          0,
+          0,
+          w,
+          h
+        );
+
+        resolve(
+          canvas.toDataURL(
+            "image/jpeg",
+            .75
+          )
+        );
+
+      };
+
+      img.src =
+        event.target.result;
+
+    };
+
+    reader.readAsDataURL(file);
+
+  });
 
 }
 
 
 /* =====================================================
-   HANDLE IMAGE
+   HANDLE IMAGES
 ===================================================== */
 
 async function handleImages(event){
 
-    const files =
-        Array.from(
-            event.target.files
-        );
+  uploadedImages=[];
+
+  const files =
+    Array.from(
+      event.target.files
+    ).slice(0,8);
 
 
-    uploadedImages =
-        [];
+  for(
+    const file of files
+  ){
+
+    if(
+      !file.type.startsWith("image/")
+    )
+      continue;
 
 
-    for(
-        const file
-        of files.slice(0,5)
-    ){
-
-        if(
-            !file.type
-            .startsWith("image/")
-        )
-            continue;
+    const data =
+      await resizeImage(file);
 
 
-        const src =
-            await resizeImage(
-                file
-            );
+    uploadedImages.push({
+
+      name:
+        "photo-" +
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2,8) +
+        ".jpg",
+
+      data:data
+
+    });
+
+  }
 
 
-        uploadedImages.push(
-            src
-        );
-
-    }
-
-
-    renderPreviews();
+  renderPreviews();
 
 }
 
 
 /* =====================================================
-   PREVIEW IMAGES
+   RENDER PREVIEWS
 ===================================================== */
 
 function renderPreviews(){
 
-    const container =
-        $("imagePreview");
+  const box =
+    $("imagePreview");
+
+  box.innerHTML="";
 
 
-    container.innerHTML =
-        "";
+  uploadedImages.forEach(
+    (item,index)=>{
 
+      const div =
+        document.createElement("div");
 
-    uploadedImages.forEach(
-        (src,index) => {
+      div.className =
+        "previewItem";
 
-            const item =
-                document.createElement(
-                    "div"
-                );
+      div.innerHTML=`
 
+        <img src="${item.data}">
 
-            item.className =
-                "previewItem";
+        <button
+          class="removeImage"
+          onclick="removeImage(${index})"
+        >
+          ×
+        </button>
 
+      `;
 
-            item.innerHTML =
+      box.appendChild(div);
 
-            `
-                <img src="${src}">
-
-                <button
-                    class="removeImage"
-                    onclick="removeImage(${index})"
-                >
-                    ×
-                </button>
-            `;
-
-
-            container.appendChild(
-                item
-            );
-
-        }
-    );
+    }
+  );
 
 }
 
@@ -1744,28 +1549,442 @@ function renderPreviews(){
 
 function removeImage(index){
 
-    uploadedImages.splice(
-        index,
-        1
-    );
+  uploadedImages.splice(
+    index,
+    1
+  );
 
-    renderPreviews();
+  renderPreviews();
 
 }
 
 
 /* =====================================================
-   WAIT
+   GITHUB SETTINGS
 ===================================================== */
 
-function wait(ms){
+function githubSettings(){
 
-    return new Promise(
-        resolve =>
-            setTimeout(
-                resolve,
-                ms
-            )
+  return {
+
+    user:
+      $("githubUser")
+      .value
+      .trim(),
+
+    repo:
+      $("githubRepo")
+      .value
+      .trim(),
+
+    branch:
+      $("githubBranch")
+      .value
+      .trim() || "main",
+
+    token:
+      $("githubToken")
+      .value
+      .trim()
+
+  };
+
+}
+
+
+/* =====================================================
+   GITHUB API
+===================================================== */
+
+async function githubUpload(
+  settings,
+  path,
+  base64,
+  message
+){
+
+  const url =
+    `https://api.github.com/repos/`+
+    `${settings.user}/`+
+    `${settings.repo}/`+
+    `contents/`+
+    `${path}`;
+
+
+  const response =
+    await fetch(
+      url,
+      {
+
+        method:"PUT",
+
+        headers:{
+
+          "Accept":
+            "application/vnd.github+json",
+
+          "Authorization":
+            `Bearer ${settings.token}`,
+
+          "X-GitHub-Api-Version":
+            "2022-11-28",
+
+          "Content-Type":
+            "application/json"
+
+        },
+
+        body:
+          JSON.stringify({
+
+            message:message,
+
+            content:base64,
+
+            branch:
+              settings.branch
+
+          })
+
+      }
+    );
+
+
+  const result =
+    await response.json();
+
+
+  if(!response.ok){
+
+    throw new Error(
+      result.message ||
+      "GitHub upload failed"
+    );
+
+  }
+
+
+  return result;
+
+}
+
+
+/* =====================================================
+   DATA URL → BASE64
+===================================================== */
+
+function dataURLToBase64(dataURL){
+
+  return dataURL
+    .split(",")[1];
+
+}
+
+
+/* =====================================================
+   TEXT → BASE64
+===================================================== */
+
+function textToBase64(text){
+
+  const bytes =
+    new TextEncoder()
+      .encode(text);
+
+
+  let binary="";
+
+  bytes.forEach(
+    byte =>
+      binary +=
+        String.fromCharCode(byte)
+  );
+
+
+  return btoa(binary);
+
+}
+
+
+/* =====================================================
+   RANDOM ID
+===================================================== */
+
+function createID(){
+
+  return (
+    "qr-" +
+    Date.now()
+      .toString(36) +
+    "-" +
+    Math.random()
+      .toString(36)
+      .substring(2,7)
+  );
+
+}
+
+
+/* =====================================================
+   CREATE QR
+===================================================== */
+
+async function createQR(){
+
+  const data =
+    getData();
+
+  const error =
+    validate(data);
+
+
+  if(error){
+
+    alert(error);
+
+    return;
+
+  }
+
+
+  const settings =
+    githubSettings();
+
+
+  if(
+    !settings.user ||
+    !settings.repo ||
+    !settings.token
+  ){
+
+    alert(
+      "Hãy nhập GitHub Username, Repository và Token."
+    );
+
+    return;
+
+  }
+
+
+  const id =
+    createID();
+
+
+  const folder =
+    `images/${id}`;
+
+
+  const status =
+    $("uploadStatus");
+
+
+  $("result")
+    .style
+    .display="block";
+
+
+  status.innerHTML =
+    "⏳ Đang upload ảnh lên GitHub...";
+
+
+  try{
+
+    /* =================================================
+       UPLOAD IMAGES
+    ================================================== */
+
+    const publicImages=[];
+
+
+    for(
+      let i=0;
+      i<data.images.length;
+      i++
+    ){
+
+      const image =
+        data.images[i];
+
+
+      status.innerHTML =
+        `⏳ Đang upload ảnh ${i+1}/${data.images.length}...`;
+
+
+      const path =
+        `${folder}/${String(i+1).padStart(2,"0")}.jpg`;
+
+
+      await githubUpload(
+
+        settings,
+
+        path,
+
+        dataURLToBase64(
+          image.data
+        ),
+
+        `Add QR image ${id} ${i+1}`
+
+      );
+
+
+      const rawUrl =
+        `https://raw.githubusercontent.com/`+
+        `${settings.user}/`+
+        `${settings.repo}/`+
+        `${settings.branch}/`+
+        `${path}`;
+
+
+      publicImages.push(
+        rawUrl
+      );
+
+    }
+
+
+    /* =================================================
+       CREATE DATA.JSON
+    ================================================== */
+
+    status.innerHTML =
+      "⏳ Đang lưu nội dung QR...";
+
+
+    const jsonData = {
+
+      bg:data.bg,
+
+      c3:data.c3,
+
+      c2:data.c2,
+
+      c1:data.c1,
+
+      final:data.final,
+
+      images:publicImages
+
+    };
+
+
+    await githubUpload(
+
+      settings,
+
+      `${folder}/data.json`,
+
+      textToBase64(
+        JSON.stringify(
+          jsonData,
+          null,
+          2
+        )
+      ),
+
+      `Add QR data ${id}`
+
+    );
+
+
+    /* =================================================
+       CREATE PLAY URL
+    ================================================== */
+
+    const playURL =
+      location.origin +
+      location.pathname +
+      "#play=" +
+      id;
+
+
+    /* =================================================
+       QR
+    ================================================== */
+
+    $("qrcode")
+      .innerHTML="";
+
+
+    new QRCode(
+
+      $("qrcode"),
+
+      {
+
+        text:playURL,
+
+        width:180,
+
+        height:180,
+
+        colorDark:"#111",
+
+        colorLight:"#fff",
+
+        correctLevel:
+          QRCode.CorrectLevel.M
+
+      }
+
+    );
+
+
+    $("shareUrl")
+      .innerText =
+      playURL;
+
+
+    status.innerHTML =
+
+      `✅ Hoàn tất!<br><br>`+
+
+      `📁 Folder:<br>`+
+
+      `${folder}<br><br>`+
+
+      `🖼️ Đã upload ${publicImages.length} ảnh.<br>`+
+
+      `🔳 QR chỉ chứa ID nên rất nhẹ.`;
+
+
+  }
+  catch(error){
+
+    console.error(error);
+
+
+    status.innerHTML =
+
+      `❌ Upload thất bại.<br><br>`+
+
+      `${error.message}<br><br>`+
+
+      `Kiểm tra lại Username, Repository, Branch `+
+
+      `và quyền Contents → Read and write của Token.`;
+
+  }
+
+}
+
+
+/* =====================================================
+   COPY LINK
+===================================================== */
+
+function copyLink(){
+
+  navigator.clipboard
+    .writeText(
+      $("shareUrl")
+      .innerText
+    )
+    .then(
+      ()=>alert(
+        "Đã copy link 💗"
+      )
     );
 
 }
@@ -1777,66 +1996,65 @@ function wait(ms){
 
 function createRain(text){
 
-    const rain =
-        $("rain");
+  const rain =
+    $("rain");
+
+  rain.innerHTML="";
 
 
-    rain.innerHTML =
-        "";
+  /*
+     200 câu nền
+     dày hơn V7
+  */
+
+  for(
+    let i=0;
+    i<200;
+    i++
+  ){
+
+    const item =
+      document.createElement("div");
 
 
-    for(
-        let i=0;
-        i<150;
-        i++
-    ){
-
-        const element =
-            document.createElement(
-                "div"
-            );
+    item.className =
+      "drop";
 
 
-        element.className =
-            "drop";
+    item.innerText =
+      text;
 
 
-        element.innerText =
-            text;
+    item.style.left =
+      Math.random()*100+
+      "%";
 
 
-        element.style.left =
-            Math.random()*100+
-            "%";
+    item.style.fontSize =
+      10+
+      Math.random()*18+
+      "px";
 
 
-        element.style.fontSize =
-            10+
-            Math.random()*20+
-            "px";
+    item.style.animationDuration =
+      4+
+      Math.random()*7+
+      "s";
 
 
-        element.style.animationDuration =
-            4+
-            Math.random()*7+
-            "s";
+    item.style.animationDelay =
+      -Math.random()*12+
+      "s";
 
 
-        element.style.animationDelay =
-            -Math.random()*12+
-            "s";
+    item.style.opacity =
+      .15+
+      Math.random()*.45;
 
 
-        element.style.opacity =
-            .2+
-            Math.random()*.5;
+    rain.appendChild(item);
 
-
-        rain.appendChild(
-            element
-        );
-
-    }
+  }
 
 }
 
@@ -1845,68 +2063,42 @@ function createRain(text){
    SIDE PHOTO
 ===================================================== */
 
-async function showSidePhoto(
-    src,
-    index
+function showSidePhoto(
+  src,
+  index
 ){
 
-    if(!src)
-        return;
+  if(!src)
+    return;
 
 
-    const container =
-        $("sidePhotos");
+  const img =
+    document.createElement("img");
 
 
-    const img =
-        document.createElement(
-            "img"
-        );
+  img.className =
+    "sidePhoto";
 
 
-    img.className =
-        "sidePhoto";
+  if(index%2===0)
+    img.classList.add("left");
+  else
+    img.classList.add("right");
 
 
-    /*
-       xen kẽ trái / phải
-    */
-
-    if(index % 2 === 0){
-
-        img.classList.add(
-            "left"
-        );
-
-    }
-    else{
-
-        img.classList.add(
-            "right"
-        );
-
-    }
+  img.style.top =
+    (
+      18+
+      Math.random()*60
+    )+
+    "%";
 
 
-    /*
-       hơi lệch dọc
-    */
-
-    img.style.top =
-        (
-            20+
-            Math.random()*55
-        )+
-        "%";
+  img.src=src;
 
 
-    img.src =
-        src;
-
-
-    container.appendChild(
-        img
-    );
+  $("sidePhotos")
+    .appendChild(img);
 
 }
 
@@ -1917,192 +2109,177 @@ async function showSidePhoto(
 
 function showAllPhotos(){
 
-    const container =
-        $("finalPhotos");
+  const box =
+    $("finalPhotos");
+
+  box.innerHTML="";
 
 
-    container.innerHTML =
-        "";
+  const positions=[
+
+    {
+      left:"1%",
+      top:"11%",
+      rotate:"-8deg"
+    },
+
+    {
+      right:"1%",
+      top:"11%",
+      rotate:"8deg"
+    },
+
+    {
+      left:"2%",
+      bottom:"8%",
+      rotate:"7deg"
+    },
+
+    {
+      right:"2%",
+      bottom:"8%",
+      rotate:"-7deg"
+    },
+
+    {
+      left:"50%",
+      top:"2%",
+      rotate:"0deg"
+    },
+
+    {
+      left:"50%",
+      bottom:"1%",
+      rotate:"0deg"
+    }
+
+  ];
 
 
-    currentData.images
-        .forEach(
-            (src,index) => {
+  currentData.images
+    .forEach(
+      (src,index)=>{
 
-                const img =
-                    document.createElement(
-                        "img"
-                    );
+        const img =
+          document.createElement("img");
 
 
-                img.className =
-                    "finalPhoto";
+        img.className =
+          "finalPhoto";
 
 
-                img.src =
-                    src;
+        img.src=src;
 
 
-                /*
-                   vị trí cố định quanh màn hình
-                */
-
-                const positions = [
-
-                    {
-                        left:"2%",
-                        top:"12%",
-                        rotate:"-8deg"
-                    },
-
-                    {
-                        right:"2%",
-                        top:"12%",
-                        rotate:"8deg"
-                    },
-
-                    {
-                        left:"3%",
-                        bottom:"10%",
-                        rotate:"7deg"
-                    },
-
-                    {
-                        right:"3%",
-                        bottom:"10%",
-                        rotate:"-7deg"
-                    },
-
-                    {
-                        left:"50%",
-                        top:"3%",
-                        rotate:"0deg"
-                    }
-
-                ];
+        const p =
+          positions[
+            index %
+            positions.length
+          ];
 
 
-                const p =
-                    positions[index];
+        if(p.left)
+          img.style.left=p.left;
+
+        if(p.right)
+          img.style.right=p.right;
+
+        if(p.top)
+          img.style.top=p.top;
+
+        if(p.bottom)
+          img.style.bottom=p.bottom;
 
 
-                if(p.left)
-                    img.style.left =
-                        p.left;
+        img.style.transform =
+          `translateX(-50%) rotate(${p.rotate})`;
 
 
-                if(p.right)
-                    img.style.right =
-                        p.right;
+        box.appendChild(img);
 
-
-                if(p.top)
-                    img.style.top =
-                        p.top;
-
-
-                if(p.bottom)
-                    img.style.bottom =
-                        p.bottom;
-
-
-                img.style.transform =
-                    `rotate(${p.rotate})`;
-
-
-                container.appendChild(
-                    img
-                );
-
-            }
-        );
+      }
+    );
 
 }
 
 
 /* =====================================================
-   HEART RAIN
+   LOVE RAIN
 ===================================================== */
 
 function createLoveRain(){
 
-    const container =
-        $("loveRain");
+  const box =
+    $("loveRain");
+
+  box.innerHTML="";
 
 
-    container.innerHTML =
-        "";
+  const symbols=[
+
+    "♥",
+    "♡",
+    "❤",
+    "💕",
+    "💗",
+    "💖",
+    "💓"
+
+  ];
 
 
-    const symbols = [
+  for(
+    let i=0;
+    i<220;
+    i++
+  ){
 
-        "♥",
-        "♡",
-        "❤",
-        "💕",
-        "💗",
-        "💖"
-
-    ];
+    const heart =
+      document.createElement("div");
 
 
-    for(
-        let i=0;
-        i<180;
-        i++
-    ){
-
-        const heart =
-            document.createElement(
-                "div"
-            );
+    heart.className="love";
 
 
-        heart.className =
-            "love";
+    heart.innerText =
+      symbols[
+        Math.floor(
+          Math.random()*
+          symbols.length
+        )
+      ];
 
 
-        heart.innerText =
-            symbols[
-                Math.floor(
-                    Math.random()*
-                    symbols.length
-                )
-            ];
+    heart.style.left =
+      Math.random()*100+
+      "%";
 
 
-        heart.style.left =
-            Math.random()*100+
-            "%";
+    heart.style.fontSize =
+      9+
+      Math.random()*27+
+      "px";
 
 
-        heart.style.fontSize =
-            10+
-            Math.random()*27+
-            "px";
+    heart.style.animationDuration =
+      3+
+      Math.random()*6+
+      "s";
 
 
-        heart.style.animationDuration =
-            3+
-            Math.random()*5+
-            "s";
+    heart.style.animationDelay =
+      Math.random()*4+
+      "s";
 
 
-        heart.style.animationDelay =
-            Math.random()*3+
-            "s";
+    heart.style.opacity =
+      .35+
+      Math.random()*.65;
 
 
-        heart.style.opacity =
-            .4+
-            Math.random()*.6;
+    box.appendChild(heart);
 
-
-        container.appendChild(
-            heart
-        );
-
-    }
+  }
 
 }
 
@@ -2113,273 +2290,247 @@ function createLoveRain(){
 
 async function playMusic(){
 
-    const music =
-        $("bgMusic");
+  const music =
+    $("bgMusic");
 
 
-    music.currentTime =
-        0;
+  try{
 
+    music.currentTime=0;
 
-    try{
+    await music.play();
 
-        await music.play();
+  }
+  catch(error){
 
-    }
-    catch(error){
+    console.log(
+      "Browser blocked audio:",
+      error
+    );
 
-        console.log(
-            "Audio blocked:",
-            error
-        );
-
-    }
+  }
 
 }
 
 
 /* =====================================================
-   START
+   START EXPERIENCE
 ===================================================== */
 
 async function startExperience(){
 
-    if(
-        started ||
-        !currentData
-    )
-        return;
+  if(
+    started ||
+    !currentData
+  )
+    return;
 
 
-    started =
-        true;
+  started=true;
 
 
-    $("startOverlay")
-        .style
-        .display =
-        "none";
+  $("startOverlay")
+    .style
+    .display="none";
 
 
-    /*
-       QUAN TRỌNG:
+  /*
+     Quan trọng:
+     play() được gọi ngay sau
+     thao tác chạm của người dùng.
+  */
 
-       phát nhạc trực tiếp
-       trong thao tác chạm
-    */
-
-    await playMusic();
+  await playMusic();
 
 
-    playSequence(
-        currentData
-    );
+  playSequence();
 
 }
 
 
 /* =====================================================
-   SEQUENCE
+   PLAY SEQUENCE
 ===================================================== */
 
-async function playSequence(data){
+async function playSequence(){
 
-    const count =
-        $("count");
+  const count =
+    $("count");
 
 
-    /* =================================================
-       3
-    ================================================= */
+  /* ================================================
+     3
+  ================================================= */
 
-    count.innerHTML =
+  count.innerHTML=`
 
-    `
-        <div class="count">
-            3
-        </div>
-    `;
+    <div class="count">
+      3
+    </div>
 
+  `;
 
-    await wait(3000);
 
+  await wait(3500);
 
-    /* =================================================
-       CÂU 3 + ẢNH 1
-    ================================================= */
 
-    if(data.images[0])
-        showSidePhoto(
-            data.images[0],
-            0
-        );
+  /* ================================================
+     CÂU 3
+  ================================================= */
 
+  showSidePhoto(
+    currentData.images[0],
+    0
+  );
 
-    count.innerHTML =
 
-    `
-        <div class="message">
-            ${escapeHTML(data.c3)}
-        </div>
-    `;
+  count.innerHTML=`
 
+    <div class="message">
+      ${escapeHTML(currentData.c3)}
+    </div>
 
-    await wait(3500);
+  `;
 
 
-    /* =================================================
-       2
-    ================================================= */
+  await wait(4500);
 
-    count.innerHTML =
 
-    `
-        <div class="count">
-            2
-        </div>
-    `;
+  /* ================================================
+     2
+  ================================================= */
 
+  count.innerHTML=`
 
-    await wait(3000);
+    <div class="count">
+      2
+    </div>
 
+  `;
 
-    /* =================================================
-       CÂU 2 + ẢNH 2
-    ================================================= */
 
-    if(data.images[1])
-        showSidePhoto(
-            data.images[1],
-            1
-        );
+  await wait(3500);
 
 
-    count.innerHTML =
+  /* ================================================
+     CÂU 2
+  ================================================= */
 
-    `
-        <div class="message">
-            ${escapeHTML(data.c2)}
-        </div>
-    `;
+  showSidePhoto(
+    currentData.images[1],
+    1
+  );
 
 
-    await wait(3500);
+  count.innerHTML=`
 
+    <div class="message">
+      ${escapeHTML(currentData.c2)}
+    </div>
 
-    /* =================================================
-       1
-    ================================================= */
+  `;
 
-    count.innerHTML =
 
-    `
-        <div class="count">
-            1
-        </div>
-    `;
+  await wait(4500);
 
 
-    await wait(3000);
+  /* ================================================
+     1
+  ================================================= */
 
+  count.innerHTML=`
 
-    /* =================================================
-       CÂU 1 + ẢNH 3
-    ================================================= */
+    <div class="count">
+      1
+    </div>
 
-    if(data.images[2])
-        showSidePhoto(
-            data.images[2],
-            2
-        );
+  `;
 
 
-    count.innerHTML =
+  await wait(3500);
 
-    `
-        <div class="message">
-            ${escapeHTML(data.c1)}
-        </div>
-    `;
 
+  /* ================================================
+     CÂU 1
+  ================================================= */
 
-    await wait(4000);
+  showSidePhoto(
+    currentData.images[2],
+    2
+  );
 
 
-    /* =================================================
-       ẢNH 4
-    ================================================= */
+  count.innerHTML=`
 
-    if(data.images[3])
-        showSidePhoto(
-            data.images[3],
-            3
-        );
+    <div class="message">
+      ${escapeHTML(currentData.c1)}
+    </div>
 
+  `;
 
-    await wait(1200);
 
+  await wait(4500);
 
-    /* =================================================
-       ẢNH 5
-    ================================================= */
 
-    if(data.images[4])
-        showSidePhoto(
-            data.images[4],
-            4
-        );
+  /* ================================================
+     THÊM ẢNH CÒN LẠI
+  ================================================= */
 
+  for(
+    let i=3;
+    i<currentData.images.length;
+    i++
+  ){
 
-    await wait(1800);
+    showSidePhoto(
+      currentData.images[i],
+      i
+    );
 
+    await wait(700);
 
-    /* =================================================
-       CUỐI CÙNG
+  }
 
-       TẤT CẢ CÙNG HIỆN
-    ================================================= */
 
-    showAllPhotos();
+  await wait(1800);
 
 
-    count.innerHTML =
+  /* ================================================
+     FINAL
+  ================================================= */
 
-    `
-        <div class="finalArea">
+  showAllPhotos();
 
-            <img
-                class="heartImage"
 
-                src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Heart_in_classic_standard_style.svg"
+  count.innerHTML=`
 
-                alt="Heart"
-            >
+    <div class="finalArea">
 
-            <div class="heartMessage">
+      <img
+        class="heartImage"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Heart_in_classic_standard_style.svg"
+        alt="Heart"
+      >
 
-                ${escapeHTML(data.final)}
+      <div class="heartMessage">
+        ${escapeHTML(currentData.final)}
+      </div>
 
-            </div>
+    </div>
 
-        </div>
-    `;
+  `;
 
 
-    /*
-       Xoá ảnh side để tránh trùng
-    */
+  $("sidePhotos")
+    .style
+    .display="none";
 
-    $("sidePhotos")
-        .style
-        .display =
-        "none";
 
+  /* ================================================
+     MANY HEARTS
+  ================================================= */
 
-    /*
-       BẮT ĐẦU MƯA TIM
-    */
-
-    createLoveRain();
+  createLoveRain();
 
 }
 
@@ -2390,201 +2541,119 @@ async function playSequence(data){
 
 function preview(){
 
-    const data =
-        getData();
+  const data =
+    getData();
 
 
-    const error =
-        validate(data);
+  const error =
+    validate(data);
 
 
-    if(error){
+  if(error){
 
-        alert(error);
+    alert(error);
 
-        return;
+    return;
 
-    }
-
-
-    currentData =
-        data;
+  }
 
 
-    started =
-        false;
+  currentData={
+
+    bg:data.bg,
+
+    c3:data.c3,
+
+    c2:data.c2,
+
+    c1:data.c1,
+
+    final:data.final,
+
+    images:
+      data.images.map(
+        item=>item.data
+      )
+
+  };
 
 
-    $("creator")
-        .style
-        .display =
-        "none";
+  started=false;
 
 
-    $("stage")
-        .classList
-        .add("show");
+  $("creator")
+    .style
+    .display="none";
 
 
-    $("startOverlay")
-        .style
-        .display =
-        "flex";
+  $("stage")
+    .classList
+    .add("show");
 
 
-    createRain(
-        data.bg
-    );
-
-}
+  $("startOverlay")
+    .style
+    .display="flex";
 
 
-/* =====================================================
-   ENCODE
-===================================================== */
-
-function encodeData(data){
-
-    return btoa(
-        unescape(
-            encodeURIComponent(
-                JSON.stringify(data)
-            )
-        )
-    );
+  createRain(
+    currentData.bg
+  );
 
 }
 
 
 /* =====================================================
-   DECODE
+   LOAD DATA FROM GITHUB
 ===================================================== */
 
-function decodeData(encoded){
+async function loadQRData(id){
 
-    return JSON.parse(
-        decodeURIComponent(
-            escape(
-                atob(encoded)
-            )
-        )
-    );
+  /*
+     Thông tin repository public
+     được lấy từ URL hiện tại
+     và mặc định cấu hình bên dưới.
 
-}
+     Nếu bạn đổi repo:
+     sửa GITHUB_PUBLIC_USER
+     và GITHUB_PUBLIC_REPO.
+  */
 
+  const user =
+    "YOUR_GITHUB_USERNAME";
 
-/* =====================================================
-   CREATE QR
-===================================================== */
+  const repo =
+    "qr-countdown";
 
-function createQR(){
-
-    const data =
-        getData();
-
-
-    const error =
-        validate(data);
+  const branch =
+    "main";
 
 
-    if(error){
-
-        alert(error);
-
-        return;
-
-    }
+  const url =
+    `https://raw.githubusercontent.com/`+
+    `${user}/${repo}/${branch}/`+
+    `images/${id}/data.json`;
 
 
-    const encoded =
-        encodeData(data);
-
-
-    const url =
-
-        location.origin +
-        location.pathname +
-        "#play=" +
-        encoded;
-
-
-    /*
-       QR quá lớn
-    */
-
-    if(
-        url.length >
-        7000
-    ){
-
-        alert(
-            "QR quá lớn. Hãy giảm số lượng ảnh hoặc chọn ảnh nhẹ hơn."
-        );
-
-        return;
-
-    }
-
-
-    $("qrcode")
-        .innerHTML =
-        "";
-
-
-    new QRCode(
-
-        $("qrcode"),
-
-        {
-
-            text:url,
-
-            width:180,
-
-            height:180,
-
-            colorDark:"#111111",
-
-            colorLight:"#ffffff",
-
-            correctLevel:
-                QRCode.CorrectLevel.L
-
-        }
-
+  const response =
+    await fetch(
+      url,
+      {
+        cache:"no-store"
+      }
     );
 
 
-    $("shareUrl")
-        .innerText =
-        url;
+  if(!response.ok){
+
+    throw new Error(
+      "Không tìm thấy dữ liệu QR."
+    );
+
+  }
 
 
-    $("result")
-        .style
-        .display =
-        "grid";
-
-}
-
-
-/* =====================================================
-   COPY
-===================================================== */
-
-function copyLink(){
-
-    navigator.clipboard
-        .writeText(
-            $("shareUrl")
-            .innerText
-        )
-        .then(
-            () =>
-                alert(
-                    "Đã copy link 💗"
-                )
-        );
+  return await response.json();
 
 }
 
@@ -2593,61 +2662,83 @@ function copyLink(){
    OPEN QR
 ===================================================== */
 
-function openFromQR(){
+async function openFromQR(){
 
-    if(
-        !location.hash
-        .startsWith("#play=")
-    )
-        return;
-
-
-    try{
-
-        const encoded =
-            location.hash
-            .substring(6);
+  if(
+    !location.hash.startsWith("#play=")
+  )
+    return;
 
 
-        currentData =
-            decodeData(
-                encoded
-            );
+  const id =
+    location.hash
+      .substring(6);
 
 
-        /*
-           KHÔNG HIỆN CREATOR
-        */
+  try{
 
-        $("creator")
-            .style
-            .display =
-            "none";
+    /*
+       Không hiển thị creator
+    */
 
-
-        $("stage")
-            .classList
-            .add("show");
+    $("creator")
+      .style
+      .display="none";
 
 
-        $("startOverlay")
-            .style
-            .display =
-            "flex";
+    $("stage")
+      .classList
+      .add("show");
 
 
-        createRain(
-            currentData.bg
-        );
+    $("startOverlay")
+      .style
+      .display="flex";
 
-    }
-    catch(error){
 
-        console.error(
-            error
-        );
+    $("startOverlay")
+      .querySelector(".startTitle")
+      .innerText =
+      "Có một điều đặc biệt dành cho bạn...";
 
-    }
+
+    /*
+       Load data
+    */
+
+    currentData =
+      await loadQRData(id);
+
+
+    createRain(
+      currentData.bg
+    );
+
+  }
+  catch(error){
+
+    $("startOverlay")
+      .innerHTML=`
+
+        <div>
+
+          <div class="startHeart">
+            💔
+          </div>
+
+          <div class="startTitle">
+            QR không tải được
+          </div>
+
+          <div class="startHint">
+            ${escapeHTML(error.message)}
+          </div>
+
+        </div>
+
+      `;
+
+  }
 
 }
 
@@ -2661,5 +2752,4 @@ openFromQR();
 </script>
 
 </body>
-
 </html>
