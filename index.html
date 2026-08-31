@@ -1,16 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width,
-  initial-scale=1,
-  maximum-scale=1,
-  user-scalable=no"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 >
 
 <title>QR Đếm Ngược 💗</title>
@@ -52,6 +49,44 @@ input{
 
 
 /* =====================================================
+   VERSION
+===================================================== */
+
+.version{
+
+  position:fixed;
+
+  top:12px;
+  right:14px;
+
+  z-index:99999;
+
+  padding:5px 10px;
+
+  border-radius:999px;
+
+  background:#ffffff12;
+
+  border:
+    1px solid #ffffff18;
+
+  color:#ffffff80;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  letter-spacing:.5px;
+
+  backdrop-filter:
+    blur(8px);
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
    CREATOR
 ===================================================== */
 
@@ -62,7 +97,7 @@ input{
   margin:auto;
 
   padding:
-    25px 0 60px;
+    30px 0 60px;
 }
 
 .logo{
@@ -143,8 +178,7 @@ input[type="password"]{
 
 input:focus{
 
-  border-color:
-    #ff4f91;
+  border-color:#ff4f91;
 }
 
 small{
@@ -227,8 +261,7 @@ small{
 
 .imageBox:hover{
 
-  border-color:
-    #ff4f91;
+  border-color:#ff4f91;
 }
 
 .imageBox input{
@@ -1146,6 +1179,15 @@ button:active{
 
 
 <!-- =====================================================
+     VERSION
+===================================================== -->
+
+<div class="version">
+  QR Đếm Ngược • V9.0
+</div>
+
+
+<!-- =====================================================
      CREATOR
 ===================================================== -->
 
@@ -1155,7 +1197,7 @@ button:active{
 >
 
   <div class="logo">
-    💌 QR Đếm Ngược V9
+    💌 QR Đếm Ngược V9.0
   </div>
 
   <div class="subtitle">
@@ -2335,14 +2377,8 @@ async function createQR(){
 
 
     /* =========================================
-       CREATE PLAYER URL
+       PLAYER URL
     ========================================== */
-
-    /*
-     * KHÔNG hard-code repo.
-     *
-     * Repo lấy từ màn hình tạo QR.
-     */
 
     const playerURL =
 
@@ -2372,7 +2408,7 @@ async function createQR(){
 
 
     /* =========================================
-       QR
+       CREATE QR
     ========================================== */
 
     $("qrcode")
@@ -2474,10 +2510,6 @@ function createRain(text){
 
   rain.innerHTML="";
 
-
-  /*
-   * Dày hơn bản trước.
-   */
 
   for(
     let i=0;
@@ -2844,11 +2876,6 @@ async function startExperience(){
     .display="none";
 
 
-  /*
-   * Người dùng vừa chạm màn hình,
-   * vì vậy trình duyệt cho phép phát MP3.
-   */
-
   await playMusic();
 
 
@@ -3053,7 +3080,6 @@ async function playSequence(){
 
 /* =====================================================
    PREVIEW
-   OPEN NEW TAB
 ===================================================== */
 
 function preview(){
@@ -3238,14 +3264,6 @@ function openPreview(){
       .display="flex";
 
 
-    $("startOverlay")
-      .querySelector(
-        ".startTitle"
-      )
-      .innerText =
-        "Có một điều đặc biệt dành cho bạn...";
-
-
     createRain(
       currentData.bg
     );
@@ -3271,10 +3289,6 @@ async function loadQRData(){
       location.search
     );
 
-
-  /*
-   * LẤY REPO TỪ LINK QR
-   */
 
   const user =
     params.get("u");
@@ -3363,39 +3377,12 @@ async function loadQRData(){
 
 async function openFromQR(){
 
-  const params =
-    new URLSearchParams(
-      location.search
-    );
-
-
-  const id =
-    params.get("id");
-
-
-  /*
-   * Nếu không có id,
-   * đây không phải link QR.
-   */
-
-  if(!id)
-    return;
-
-
   try{
-
-    /*
-     * Ẩn creator.
-     */
 
     $("creator")
       .style
       .display="none";
 
-
-    /*
-     * Hiện stage.
-     */
 
     $("stage")
       .classList
@@ -3407,25 +3394,9 @@ async function openFromQR(){
       .display="flex";
 
 
-    $("startOverlay")
-      .querySelector(
-        ".startTitle"
-      )
-      .innerText =
-        "Có một điều đặc biệt dành cho bạn...";
-
-
-    /*
-     * Load data từ GitHub.
-     */
-
     currentData =
       await loadQRData();
 
-
-    /*
-     * Tạo background.
-     */
 
     createRain(
       currentData.bg
@@ -3487,10 +3458,6 @@ async function openFromQR(){
     );
 
 
-  /*
-   * Preview có priority cao hơn.
-   */
-
   if(
     params.has("preview")
   ){
@@ -3501,10 +3468,6 @@ async function openFromQR(){
 
   }
 
-
-  /*
-   * QR thật.
-   */
 
   if(
     params.has("id")
@@ -3523,3 +3486,4 @@ async function openFromQR(){
 </body>
 
 </html>
+```
