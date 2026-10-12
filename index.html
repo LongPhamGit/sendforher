@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -49,6 +51,7 @@ input{
 
 /* =====================================================
    VERSION
+   Chỉ hiện ở màn hình tạo QR
 ===================================================== */
 
 .version{
@@ -66,8 +69,7 @@ input{
 
   background:#ffffff12;
 
-  border:
-    1px solid #ffffff18;
+  border:1px solid #ffffff18;
 
   color:#ffffff80;
 
@@ -77,8 +79,7 @@ input{
 
   letter-spacing:.5px;
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter:blur(8px);
 
   pointer-events:none;
 
@@ -95,8 +96,7 @@ input{
 
   margin:auto;
 
-  padding:
-    30px 0 60px;
+  padding:30px 0 60px;
 }
 
 .logo{
@@ -237,7 +237,7 @@ small{
 
 
 /* =====================================================
-   IMAGE
+   IMAGE UPLOAD
 ===================================================== */
 
 .imageBox{
@@ -332,7 +332,7 @@ small{
 
 
 /* =====================================================
-   BUTTONS
+   BUTTON
 ===================================================== */
 
 .buttons{
@@ -380,8 +380,7 @@ button{
 
 button:active{
 
-  transform:
-    scale(.97);
+  transform:scale(.97);
 }
 
 
@@ -470,7 +469,6 @@ button:active{
   overflow:hidden;
 
   background:
-
     radial-gradient(
       circle at 50% 40%,
       #43243e,
@@ -487,7 +485,7 @@ button:active{
 
 
 /* =====================================================
-   AUDIO
+   MUSIC
 ===================================================== */
 
 #bgMusic{
@@ -496,7 +494,7 @@ button:active{
 
 
 /* =====================================================
-   START
+   START SCREEN
 ===================================================== */
 
 .startOverlay{
@@ -516,15 +514,13 @@ button:active{
   text-align:center;
 
   background:
-
     radial-gradient(
       circle,
       #4b2746,
       #090912 75%
     );
 
-  backdrop-filter:
-    blur(10px);
+  backdrop-filter:blur(10px);
 
   cursor:pointer;
 }
@@ -538,9 +534,7 @@ button:active{
   color:#ff4f91;
 
   text-shadow:
-
     0 0 25px #ff4f91,
-
     0 0 80px #ff4f9188;
 
   animation:
@@ -551,8 +545,7 @@ button:active{
 
   margin:20px 0;
 
-  padding:
-    0 20px;
+  padding:0 20px;
 
   font-size:
     clamp(22px,6vw,40px);
@@ -564,8 +557,7 @@ button:active{
 
   display:inline-block;
 
-  padding:
-    16px 30px;
+  padding:16px 30px;
 
   border-radius:999px;
 
@@ -599,12 +591,11 @@ button:active{
   30%{
     transform:scale(1);
   }
-
 }
 
 
 /* =====================================================
-   BACKGROUND RAIN
+   BACKGROUND TEXT RAIN
 ===================================================== */
 
 .rain{
@@ -646,9 +637,7 @@ button:active{
     transform:
       translateY(140vh)
       rotate(5deg);
-
   }
-
 }
 
 
@@ -669,7 +658,7 @@ button:active{
   justify-content:center;
 
   padding:
-    25px 25%;
+    25px 30%;
 
   text-align:center;
 
@@ -686,9 +675,7 @@ button:active{
   font-weight:1000;
 
   text-shadow:
-
     0 0 30px #ff4f91,
-
     0 0 80px #ff4f9166;
 
   animation:
@@ -720,13 +707,11 @@ button:active{
     opacity:0;
 
     transform:scale(.2);
-
   }
 
   70%{
 
     transform:scale(1.12);
-
   }
 
   to{
@@ -734,9 +719,7 @@ button:active{
     opacity:1;
 
     transform:scale(1);
-
   }
-
 }
 
 @keyframes messageIn{
@@ -748,7 +731,6 @@ button:active{
     transform:
       translateY(30px)
       scale(.9);
-
   }
 
   to{
@@ -758,9 +740,7 @@ button:active{
     transform:
       translateY(0)
       scale(1);
-
   }
-
 }
 
 
@@ -777,43 +757,47 @@ button:active{
   z-index:20;
 
   pointer-events:none;
+
+  overflow:hidden;
 }
 
 .sidePhoto{
 
   position:absolute;
 
-  width:
-    min(21vw,230px);
+  width:min(16vw,170px);
 
-  height:
-    min(29vw,300px);
+  height:min(23vw,230px);
 
   object-fit:cover;
 
   border:
-    3px solid white;
+    2px solid white;
 
-  border-radius:20px;
+  border-radius:16px;
 
   box-shadow:
-
-    0 15px 45px #000b,
-
-    0 0 35px #ff4f9166;
+    0 12px 35px #000b,
+    0 0 25px #ff4f9155;
 
   opacity:0;
 
   animation:
     photoIn 1.2s forwards;
+
+  max-width:18vw;
+
+  max-height:25vh;
 }
 
 .sidePhoto.left{
-  left:max(2vw,14px);
+
+  left:3vw;
 }
 
 .sidePhoto.right{
-  right:max(2vw,14px);
+
+  right:3vw;
 }
 
 @keyframes photoIn{
@@ -825,15 +809,16 @@ button:active{
     transform:
       scale(.7)
       translateY(25px);
-
   }
 
   to{
 
     opacity:1;
 
+    transform:
+      scale(1)
+      translateY(0);
   }
-
 }
 
 
@@ -858,7 +843,6 @@ button:active{
   justify-content:center;
 
   animation:
-
     finalIn 1.5s
     cubic-bezier(
       .17,
@@ -866,6 +850,8 @@ button:active{
       .32,
       1.28
     );
+
+  z-index:30;
 }
 
 .heartImage{
@@ -878,15 +864,12 @@ button:active{
   object-fit:contain;
 
   filter:
-
     drop-shadow(
       0 0 18px #ff4f91
     )
-
     drop-shadow(
       0 0 60px #ff4f9188
     )
-
     drop-shadow(
       0 0 110px #ff4f9144
     );
@@ -919,9 +902,7 @@ button:active{
   color:white;
 
   text-shadow:
-
     0 3px 8px #79183f,
-
     0 0 20px white;
 }
 
@@ -932,7 +913,6 @@ button:active{
     opacity:0;
 
     transform:scale(.05);
-
   }
 
   to{
@@ -940,9 +920,7 @@ button:active{
     opacity:1;
 
     transform:scale(1);
-
   }
-
 }
 
 @keyframes heartPulse{
@@ -954,7 +932,6 @@ button:active{
   50%{
     transform:scale(1.045);
   }
-
 }
 
 
@@ -968,20 +945,20 @@ button:active{
 
   inset:0;
 
-  z-index:5;
+  z-index:25;
 
   pointer-events:none;
+
+  overflow:hidden;
 }
 
 .finalPhoto{
 
   position:absolute;
 
-  width:
-    min(17vw,170px);
+  width:min(15vw,150px);
 
-  height:
-    min(23vw,220px);
+  height:min(20vw,200px);
 
   object-fit:cover;
 
@@ -993,12 +970,13 @@ button:active{
   box-shadow:
     0 12px 35px #000b;
 
-  opacity:.92;
+  opacity:.94;
 }
 
 
 /* =====================================================
-   HEART RAIN
+   LOVE RAIN
+   RƠI VÔ HẠN
 ===================================================== */
 
 .loveRain{
@@ -1021,7 +999,11 @@ button:active{
   top:-10vh;
 
   animation:
-    loveFall linear forwards;
+    loveFall linear infinite;
+
+  will-change:
+    transform,
+    opacity;
 
   text-shadow:
     0 0 15px #ff4f91aa;
@@ -1029,16 +1011,41 @@ button:active{
 
 @keyframes loveFall{
 
-  to{
+  0%{
 
     transform:
-      translateY(140vh)
-      rotate(30deg);
+      translate3d(
+        0,
+        -15vh,
+        0
+      )
+      rotate(0deg);
 
-    opacity:.05;
-
+    opacity:0;
   }
 
+  10%{
+
+    opacity:.9;
+  }
+
+  90%{
+
+    opacity:.9;
+  }
+
+  100%{
+
+    transform:
+      translate3d(
+        var(--drift),
+        120vh,
+        0
+      )
+      rotate(360deg);
+
+    opacity:0;
+  }
 }
 
 
@@ -1049,92 +1056,140 @@ button:active{
 @media(max-width:700px){
 
   .creator{
+
     padding-top:18px;
   }
+
 
   .grid{
 
     grid-template-columns:1fr;
-
   }
+
 
   .full{
 
     grid-column:auto;
-
   }
+
 
   .qrArea{
 
     grid-template-columns:1fr;
-
   }
+
 
   .qr{
 
     margin:auto;
-
   }
+
+
+  /* -----------------------------------------------
+     PHẦN CHỮ GIỮA
+  ------------------------------------------------ */
 
   .presentation{
 
-    padding:
-      25px 23%;
+    padding-left:30vw;
 
+    padding-right:30vw;
   }
+
 
   .message{
 
     font-size:
       clamp(
-        22px,
-        7vw,
-        38px
+        21px,
+        6.5vw,
+        36px
       );
 
+    line-height:1.2;
   }
+
+
+  /* -----------------------------------------------
+     ẢNH HAI BÊN
+  ------------------------------------------------ */
 
   .sidePhoto{
 
-    width:24vw;
+    width:17vw;
 
-    height:31vw;
+    height:23vw;
 
-    border-radius:13px;
+    max-width:70px;
 
-    border-width:2px;
-
-  }
-
-  .finalArea{
-
-    width:64vw;
-
-    height:64vw;
-
-  }
-
-  .heartMessage{
-
-    font-size:
-      clamp(
-        17px,
-        4.7vw,
-        30px
-      );
-
-  }
-
-  .finalPhoto{
-
-    width:18vw;
-
-    height:24vw;
+    max-height:110px;
 
     border-radius:12px;
 
     border-width:2px;
+  }
 
+
+  .sidePhoto.left{
+
+    left:3vw;
+  }
+
+
+  .sidePhoto.right{
+
+    right:3vw;
+  }
+
+
+  /* -----------------------------------------------
+     TRÁI TIM CUỐI
+  ------------------------------------------------ */
+
+  .finalArea{
+
+    width:62vw;
+
+    height:62vw;
+
+    max-width:280px;
+
+    max-height:280px;
+  }
+
+
+  .heartMessage{
+
+    width:52%;
+
+    font-size:
+      clamp(
+        16px,
+        4.5vw,
+        27px
+      );
+
+    line-height:1.15;
+  }
+
+
+  /* -----------------------------------------------
+     ẢNH CUỐI
+  ------------------------------------------------ */
+
+  .finalPhoto{
+
+    width:15vw;
+
+    height:20vw;
+
+    max-width:62px;
+
+    max-height:95px;
+
+    border-radius:10px;
+
+    border-width:2px;
   }
 
 }
@@ -1148,23 +1203,27 @@ button:active{
 
   .presentation{
 
-    padding:
-      25px 21%;
+    padding-left:29vw;
 
+    padding-right:29vw;
   }
+
 
   .sidePhoto{
 
-    width:22vw;
+    width:21vw;
 
-    height:29vw;
+    height:28vw;
 
+    max-width:65px;
+
+    max-height:100px;
   }
+
 
   .heartMessage{
 
     font-size:16px;
-
   }
 
 }
@@ -1181,8 +1240,11 @@ button:active{
      VERSION
 ===================================================== -->
 
-<div class="version">
-  QR Đếm Ngược • V9.0
+<div
+  class="version"
+  id="version"
+>
+  QR Đếm Ngược • V9.1
 </div>
 
 
@@ -1196,7 +1258,7 @@ button:active{
 >
 
   <div class="logo">
-    💌 QR Đếm Ngược V9.0
+    💌 QR Đếm Ngược V9.1
   </div>
 
   <div class="subtitle">
@@ -1395,7 +1457,7 @@ button:active{
 
 
       <!-- =================================================
-           IMAGES
+           IMAGE
       ================================================== -->
 
       <div class="full">
@@ -1420,13 +1482,15 @@ button:active{
             🖼️
           </div>
 
+
           <strong>
             Chọn ảnh
           </strong>
 
+
           <small>
             Tối đa 8 ảnh.
-            Ảnh được nén trước khi upload.
+            Ảnh sẽ được nén trước khi upload.
           </small>
 
         </label>
@@ -1445,6 +1509,7 @@ button:active{
 
     <div class="buttons">
 
+
       <button
         class="primary"
         onclick="preview()"
@@ -1459,6 +1524,7 @@ button:active{
       >
         🔳 Upload & Tạo QR
       </button>
+
 
     </div>
 
@@ -1537,6 +1603,12 @@ button:active{
 >
 
 
+  <!-- =================================================
+       MUSIC
+
+       Đặt music.mp3 cùng thư mục index.html
+  ================================================== -->
+
   <audio
     id="bgMusic"
     loop
@@ -1551,7 +1623,9 @@ button:active{
   </audio>
 
 
-  <!-- START -->
+  <!-- =================================================
+       START
+  ================================================== -->
 
   <div
     class="startOverlay"
@@ -1566,9 +1640,7 @@ button:active{
       </div>
 
 
-      <div
-        class="startTitle"
-      >
+      <div class="startTitle">
         Có một điều đặc biệt dành cho bạn...
       </div>
 
@@ -1587,7 +1659,9 @@ button:active{
   </div>
 
 
-  <!-- RAIN -->
+  <!-- =================================================
+       BACKGROUND RAIN
+  ================================================== -->
 
   <div
     class="rain"
@@ -1595,7 +1669,9 @@ button:active{
   ></div>
 
 
-  <!-- SIDE PHOTOS -->
+  <!-- =================================================
+       SIDE PHOTOS
+  ================================================== -->
 
   <div
     class="sidePhotos"
@@ -1603,7 +1679,9 @@ button:active{
   ></div>
 
 
-  <!-- PRESENTATION -->
+  <!-- =================================================
+       PRESENTATION
+  ================================================== -->
 
   <div
     class="presentation"
@@ -1615,7 +1693,9 @@ button:active{
   </div>
 
 
-  <!-- FINAL PHOTOS -->
+  <!-- =================================================
+       FINAL PHOTOS
+  ================================================== -->
 
   <div
     class="finalPhotos"
@@ -1623,7 +1703,9 @@ button:active{
   ></div>
 
 
-  <!-- LOVE RAIN -->
+  <!-- =================================================
+       LOVE RAIN
+  ================================================== -->
 
   <div
     class="loveRain"
@@ -1686,7 +1768,7 @@ function wordCount(text){
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(text){
@@ -1958,7 +2040,7 @@ async function handleImages(event){
 
 
 /* =====================================================
-   PREVIEWS
+   RENDER PREVIEWS
 ===================================================== */
 
 function renderPreviews(){
@@ -2027,37 +2109,28 @@ function removeImage(index){
 
 function githubSettings(){
 
-  const user =
-    $("githubUser")
-      .value
-      .trim();
-
-
-  const repo =
-    $("githubRepo")
-      .value
-      .trim();
-
-
-  const branch =
-    $("githubBranch")
-      .value
-      .trim() ||
-    "main";
-
-
-  const token =
-    $("githubToken")
-      .value
-      .trim();
-
-
   return {
 
-    user,
-    repo,
-    branch,
-    token
+    user:
+      $("githubUser")
+        .value
+        .trim(),
+
+    repo:
+      $("githubRepo")
+        .value
+        .trim(),
+
+    branch:
+      $("githubBranch")
+        .value
+        .trim() ||
+      "main",
+
+    token:
+      $("githubToken")
+        .value
+        .trim()
 
   };
 
@@ -2143,12 +2216,10 @@ async function githubUpload(
 
 
 /* =====================================================
-   DATA URL TO BASE64
+   DATA URL → BASE64
 ===================================================== */
 
-function dataURLToBase64(
-  dataURL
-){
+function dataURLToBase64(dataURL){
 
   return dataURL
     .split(",")[1];
@@ -2157,7 +2228,7 @@ function dataURLToBase64(
 
 
 /* =====================================================
-   TEXT TO BASE64
+   TEXT → BASE64
 ===================================================== */
 
 function textToBase64(text){
@@ -2274,9 +2345,9 @@ async function createQR(){
     const publicImages=[];
 
 
-    /* =========================================
+    /* =============================================
        UPLOAD IMAGES
-    ========================================== */
+    ============================================== */
 
     for(
       let i=0;
@@ -2331,9 +2402,9 @@ async function createQR(){
     }
 
 
-    /* =========================================
+    /* =============================================
        DATA.JSON
-    ========================================== */
+    ============================================== */
 
     status.innerHTML =
       "⏳ Đang lưu nội dung...";
@@ -2375,9 +2446,12 @@ async function createQR(){
     );
 
 
-    /* =========================================
+    /* =============================================
        PLAYER URL
-    ========================================== */
+
+       Không hard-code repository.
+       Dùng chính URL GitHub Pages hiện tại.
+    ============================================== */
 
     const playerURL =
 
@@ -2406,9 +2480,9 @@ async function createQR(){
       );
 
 
-    /* =========================================
+    /* =============================================
        CREATE QR
-    ========================================== */
+    ============================================== */
 
     $("qrcode")
       .innerHTML="";
@@ -2498,7 +2572,7 @@ function copyLink(){
 
 
 /* =====================================================
-   CREATE BACKGROUND RAIN
+   BACKGROUND TEXT RAIN
 ===================================================== */
 
 function createRain(text){
@@ -2510,9 +2584,13 @@ function createRain(text){
   rain.innerHTML="";
 
 
+  /*
+   * Dày hơn bản cũ.
+   */
+
   for(
     let i=0;
-    i<260;
+    i<320;
     i++
   ){
 
@@ -2593,21 +2671,32 @@ function showSidePhoto(
 
   if(
     index%2===0
-  )
+  ){
+
     img.classList.add(
       "left"
     );
-  else
+
+  }
+  else{
+
     img.classList.add(
       "right"
     );
 
+  }
+
+
+  /*
+   * Giới hạn vị trí dọc.
+   * Không đặt quá sát cạnh trên/dưới.
+   */
 
   img.style.top =
 
     (
-      17 +
-      Math.random()*62
+      15 +
+      Math.random()*58
     ) +
 
     "%";
@@ -2623,7 +2712,7 @@ function showSidePhoto(
 
 
 /* =====================================================
-   FINAL PHOTOS
+   SHOW ALL FINAL PHOTOS
 ===================================================== */
 
 function showAllPhotos(){
@@ -2635,29 +2724,34 @@ function showAllPhotos(){
   box.innerHTML="";
 
 
+  /*
+   * Các vị trí được thiết kế để
+   * không đè lên trái tim ở giữa.
+   */
+
   const positions=[
 
     {
-      left:"1%",
-      top:"10%",
+      left:"2%",
+      top:"12%",
       rotate:"-8deg"
     },
 
     {
-      right:"1%",
-      top:"10%",
+      right:"2%",
+      top:"12%",
       rotate:"8deg"
     },
 
     {
-      left:"2%",
-      bottom:"8%",
+      left:"3%",
+      bottom:"10%",
       rotate:"7deg"
     },
 
     {
-      right:"2%",
-      bottom:"8%",
+      right:"3%",
+      bottom:"10%",
       rotate:"-7deg"
     },
 
@@ -2720,10 +2814,23 @@ function showAllPhotos(){
             p.bottom;
 
 
-        img.style.transform =
+        /*
+         * Ảnh ở giữa phải translate X.
+         */
 
-          `translateX(-50%) `+
-          `rotate(${p.rotate})`;
+        if(p.left==="50%"){
+
+          img.style.transform =
+            `translateX(-50%) `+
+            `rotate(${p.rotate})`;
+
+        }
+        else{
+
+          img.style.transform =
+            `rotate(${p.rotate})`;
+
+        }
 
 
         box.appendChild(img);
@@ -2736,6 +2843,7 @@ function showAllPhotos(){
 
 /* =====================================================
    LOVE RAIN
+   LIÊN TỤC VÔ HẠN
 ===================================================== */
 
 function createLoveRain(){
@@ -2760,9 +2868,18 @@ function createLoveRain(){
   ];
 
 
+  /*
+   * 180 trái tim.
+   *
+   * animation = infinite
+   *
+   * Vì vậy tim sẽ liên tục
+   * rơi lại từ trên xuống.
+   */
+
   for(
     let i=0;
-    i<240;
+    i<180;
     i++
   ){
 
@@ -2794,31 +2911,52 @@ function createLoveRain(){
 
     heart.style.fontSize =
 
-      9 +
-      Math.random()*27 +
+      10 +
+      Math.random()*24 +
       "px";
 
 
     heart.style.animationDuration =
 
-      3 +
-      Math.random()*6 +
+      4 +
+      Math.random()*7 +
       "s";
 
+
+    /*
+     * Âm giúp lúc vừa vào màn cuối
+     * đã có sẵn tim đang rơi.
+     */
 
     heart.style.animationDelay =
 
-      Math.random()*4 +
+      -(Math.random()*10) +
       "s";
+
+
+    heart.style.setProperty(
+
+      "--drift",
+
+      (
+        -60 +
+        Math.random()*120
+      ) +
+
+      "px"
+
+    );
 
 
     heart.style.opacity =
 
-      .35 +
-      Math.random()*.65;
+      .4 +
+      Math.random()*.6;
 
 
-    box.appendChild(heart);
+    box.appendChild(
+      heart
+    );
 
   }
 
@@ -2843,6 +2981,11 @@ async function playMusic(){
 
   }
   catch(error){
+
+    /*
+     * Mobile browser chỉ cho phép
+     * phát audio sau thao tác của người dùng.
+     */
 
     console.log(
       "Audio blocked:",
@@ -2875,6 +3018,12 @@ async function startExperience(){
     .display="none";
 
 
+  /*
+   * Vì hàm này được gọi trực tiếp
+   * từ thao tác chạm nên mobile
+   * có thể cho phép phát nhạc.
+   */
+
   await playMusic();
 
 
@@ -2893,9 +3042,9 @@ async function playSequence(){
     $("count");
 
 
-  /* =========================================
+  /* =============================================
      3
-  ========================================== */
+  ============================================== */
 
   count.innerHTML = `
 
@@ -2909,9 +3058,9 @@ async function playSequence(){
   await wait(4000);
 
 
-  /* =========================================
-     MESSAGE 3
-  ========================================== */
+  /* =============================================
+     CÂU 1
+  ============================================== */
 
   showSidePhoto(
     currentData.images[0],
@@ -2933,9 +3082,9 @@ async function playSequence(){
   await wait(5000);
 
 
-  /* =========================================
+  /* =============================================
      2
-  ========================================== */
+  ============================================== */
 
   count.innerHTML = `
 
@@ -2949,9 +3098,9 @@ async function playSequence(){
   await wait(4000);
 
 
-  /* =========================================
-     MESSAGE 2
-  ========================================== */
+  /* =============================================
+     CÂU 2
+  ============================================== */
 
   showSidePhoto(
     currentData.images[1],
@@ -2973,9 +3122,9 @@ async function playSequence(){
   await wait(5000);
 
 
-  /* =========================================
+  /* =============================================
      1
-  ========================================== */
+  ============================================== */
 
   count.innerHTML = `
 
@@ -2989,9 +3138,9 @@ async function playSequence(){
   await wait(4000);
 
 
-  /* =========================================
-     MESSAGE 1
-  ========================================== */
+  /* =============================================
+     CÂU 3
+  ============================================== */
 
   showSidePhoto(
     currentData.images[2],
@@ -3013,9 +3162,9 @@ async function playSequence(){
   await wait(5000);
 
 
-  /* =========================================
-     REMAINING PHOTOS
-  ========================================== */
+  /* =============================================
+     HIỆN CÁC ẢNH CÒN LẠI
+  ============================================== */
 
   for(
     let i=3;
@@ -3037,9 +3186,9 @@ async function playSequence(){
   await wait(1800);
 
 
-  /* =========================================
-     FINAL
-  ========================================== */
+  /* =============================================
+     MÀN CUỐI
+  ============================================== */
 
   showAllPhotos();
 
@@ -3067,10 +3216,19 @@ async function playSequence(){
   `;
 
 
+  /*
+   * Ẩn ảnh bên.
+   * Tất cả ảnh được bố trí lại ở finalPhotos.
+   */
+
   $("sidePhotos")
     .style
     .display="none";
 
+
+  /*
+   * BẮT ĐẦU TIM RƠI VÔ HẠN
+   */
 
   createLoveRain();
 
@@ -3212,6 +3370,11 @@ function openPreview(){
       .display="none";
 
 
+    $("version")
+      .style
+      .display="none";
+
+
     $("stage")
       .classList
       .add("show");
@@ -3248,7 +3411,16 @@ function openPreview(){
       );
 
 
+    /*
+     * Ẩn creator + version
+     */
+
     $("creator")
+      .style
+      .display="none";
+
+
+    $("version")
       .style
       .display="none";
 
@@ -3378,7 +3550,20 @@ async function openFromQR(){
 
   try{
 
+    /*
+     * Ẩn màn hình tạo QR
+     */
+
     $("creator")
+      .style
+      .display="none";
+
+
+    /*
+     * Ẩn VERSION
+     */
+
+    $("version")
       .style
       .display="none";
 
@@ -3408,6 +3593,11 @@ async function openFromQR(){
 
 
     $("creator")
+      .style
+      .display="none";
+
+
+    $("version")
       .style
       .display="none";
 
@@ -3457,6 +3647,10 @@ async function openFromQR(){
     );
 
 
+  /*
+   * PREVIEW
+   */
+
   if(
     params.has("preview")
   ){
@@ -3467,6 +3661,10 @@ async function openFromQR(){
 
   }
 
+
+  /*
+   * REAL QR
+   */
 
   if(
     params.has("id")
@@ -3485,3 +3683,4 @@ async function openFromQR(){
 </body>
 
 </html>
+```
